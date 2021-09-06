@@ -17,6 +17,11 @@ main{
     min-width: 100%;
 }
 
+.alert{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 .block{
     display: block;
     max-width: 100%;
