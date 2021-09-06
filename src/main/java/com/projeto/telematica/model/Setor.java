@@ -11,7 +11,7 @@ public enum Setor {
     PETROLEO_GAS_BIOCOMBUSTIVEIS("petróleo_gas_biocombustiveis"),
     SAUDE("saude"),
     TECNOLOGIA_DA_INFORMACAO("tecnologia_da_informacao"),
-    UTILIDADE_PUBLICA("utilidade_tepublica");
+    UTILIDADE_PUBLICA("utilidade_publica");
 	
 	private String descricao;
 

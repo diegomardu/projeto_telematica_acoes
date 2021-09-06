@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.projeto.telematica.model.CadastroAcao;
 
-public interface EmpresaRepository extends JpaRepository<CadastroAcao, Long> {
+public interface AcoesRepository extends JpaRepository<CadastroAcao, Long> {
 
 }
