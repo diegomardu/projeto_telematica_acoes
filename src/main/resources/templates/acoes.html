@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br"
-        xmlns:th="http://www.thymeleaf.org"
-        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+        xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <title>IFPB³ | Ações</title>
@@ -12,15 +11,19 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     </head>
     <body>
         <main>
             <form class="form-container" method="POST" action="/cadastro_acoes">
+            		<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+            			<span th:text="${mensagem}">Ação salva com sucesso</span>
+            		</div>
                     <div class="form-container__row">
-                        <label class="input-box" for="tiker" >Papel(TIKER):</label>
-                            <input class="block" id="tiker" type="text" name="tiker" required placeholder="Digite o papel..."/>
+                        <label for="tiker" >Papel(TIKER):</label>
+                        <input class="block" id="tiker" type="text" name="tiker" required placeholder="Digite o papel..."/>
     
-                        <label class="input-box" for="empresa">Empresa:</label>
+                        <label for="empresa">Empresa:</label>
                         <input class="block" id="empresa" type="text" name="empresa" required placeholder="Digite o nome de empresa..."/>
                     </div>
 

@@ -9,12 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_empresa")
-public class Empresa {
+@Table(name = "tb_açoes")
+public class CadastroAcao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
+	
 	private String tiker;
 	private String empresa;
 
@@ -40,11 +41,11 @@ public class Empresa {
 		this.tiker = tiker;
 	}
 
-	public String getEmpresa() {
+	public String getempresa() {
 		return empresa;
 	}
 
-	public void setEmpresa(String empresa) {
+	public void setempresa(String empresa) {
 		this.empresa = empresa;
 	}
 
@@ -80,7 +81,7 @@ public class Empresa {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Empresa other = (Empresa) obj;
+		CadastroAcao other = (CadastroAcao) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
