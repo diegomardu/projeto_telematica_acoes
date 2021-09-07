@@ -2,16 +2,16 @@ package com.projeto.telematica.model;
 
 public enum Setor {
 	
-	BENS_INDUSTRIAIS("bens_industriais"),
-	COMUNICACOES("comunicacoes"),
-    CONSUMO_CICLICO("consumo_ciclico"),
-    CONSUMO_NAO_CICLICO("consumo_nao_ciclico"),
-    FINANCEIRO("financeiro"),
-    MATERIAIS_BASICOS("materiais_basicos"),
-    PETROLEO_GAS_BIOCOMBUSTIVEIS("petróleo_gas_biocombustiveis"),
-    SAUDE("saude"),
-    TECNOLOGIA_DA_INFORMACAO("tecnologia_da_informacao"),
-    UTILIDADE_PUBLICA("utilidade_publica");
+	BENS_INDUSTRIAIS("Bens Industriais"),
+	COMUNICACOES("Comunicações"),
+    CONSUMO_CICLICO("Consumo Cíclico"),
+    CONSUMO_NAO_CICLICO("Consumo não Cíclico"),
+    FINANCEIRO("Financeiro"),
+    MATERIAIS_BASICOS("Materiais Básicos"),
+    PETROLEO_GAS_BIOCOMBUSTIVEIS("Petróleo, Gás e Biocombustíveis"),
+    SAUDE("Saúde"),
+    TECNOLOGIA_DA_INFORMACAO("Tecnologia da Informação"),
+    UTILIDADE_PUBLICA("Utilidade Pública");
 	
 	private String descricao;
 

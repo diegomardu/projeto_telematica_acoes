@@ -11,7 +11,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
         <main>
@@ -30,26 +30,16 @@
                 <div class="form-container__setor">
                     <fieldset>
                         <label class="input-box">Tipo da Ação:</label>
-                       	<select name="tipoConta">
-                       		<option value="ACAO_ORDINARIA" id="acoes-ordinarias">Ações Ordinárias(ON)</option>
-                       		<option value="ACAO_PREFERENCIAL" id="acoes-preferencias">Ações Preferênciais(PN)</option>
+                       	<select class="custom-select" name="tipoConta">
+                       		<option th:each="conta : ${todosTipoConta}" th:value="${conta}" th:text="${conta.descricao}"></option>
                        	</select>
                      </fieldset>
                  </div>
                       
                <div class="form-container__setor"> 
                     <label class="input-box">Setor:</label>
-                    <select name="setor">
-                        <option value="BENS_INDUSTRIAIS">Bens Industriais</option>
-                        <option value="COMUNICACOES">Comunicações</option>
-                        <option value="CONSUMO_CICLICO" >Consumo Cíclico</option>
-                        <option value="CONSUMO_NAO_CICLICO">Consumo não Cíclico</option>
-                        <option value="FINANCEIRO">Financeiro</option>
-                        <option value="MATERIAIS_BASICOS" >Materiais Básicos</option>
-                        <option value="PETROLEO_GAS_BIOCOMBUSTIVEIS">Petróleo, Gás e Biocombustíveis</option>
-                        <option value="SAUDE">Saúde</option>
-                        <option value="TECNOLOGIA_DA_INFORMACAO">Tecnologia da Informação</option>
-                        <option value="UTILIDADE_PUBLICA">Utilidade Pública</option>
+                    <select class="custom-select" name="setor">
+                        <option th:each="setor : ${todosSetores}" th:value="${setor}" th:text="${setor.descricao}"></option>
                     </select>
                 </div>
 

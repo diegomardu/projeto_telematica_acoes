@@ -2,7 +2,8 @@ package com.projeto.telematica.model;
 
 public enum TipoConta {
 
-	ACAO_ORDINARIA("acao_ordinaria"), ACAO_PREFERENCIAL("acao _referencial");
+	ACAO_ORDINARIA("Ações Ordinárias(ON)"), 
+	ACAO_PREFERENCIAL("Ações Preferênciais(PN)");
 
 	private String descricao;
 
