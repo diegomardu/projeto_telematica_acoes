@@ -21,6 +21,7 @@ import com.projeto.telematica.service.AcoesService;
 public class AcoesController {
 
 	private static final String CADASTRO_ACOES = "acoes";
+	private static final String PESQUISA_ACOES = "PesquisaAcoes";
 
 	@Autowired
 	private AcoesService acoesService;
@@ -31,7 +32,7 @@ public class AcoesController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView salvar(CadastroAcao acao, RedirectAttributes atributes) {
+	public ModelAndView CadastrarAcao(CadastroAcao acao, RedirectAttributes atributes) {
 		String tiker = acao.getTiker().toUpperCase();
 		acao.setTiker(tiker);
 		acoesService.salvar(acao);
@@ -41,14 +42,22 @@ public class AcoesController {
 
 	}
 
+	@RequestMapping
+	public ModelAndView BuscarAcao() {
+		List<CadastroAcao> todasAcoes = acoesService.pesquisar();
+		ModelAndView mv = new ModelAndView(PESQUISA_ACOES);
+		mv.addObject("acoes", todasAcoes);
+		return mv;
+	}
+
 	@ModelAttribute("todosTipoConta")
 	public List<TipoConta> todosTipoConta() {
 		return Arrays.asList(TipoConta.values());
 
 	}
-	
+
 	@ModelAttribute("todosSetores")
-	public List<Setor> todosSetores(){
+	public List<Setor> todosSetores() {
 		return Arrays.asList(Setor.values());
 	}
 }
