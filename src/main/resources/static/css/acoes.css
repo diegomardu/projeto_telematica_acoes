@@ -160,6 +160,16 @@ main{
     padding-top: 35px;
 }
 
+.link-panel{
+	float:right;
+	padding:0px;
+}
+
+.titulo-panel{
+	float:left;
+	padding:2px;
+}
+
 button{
     height: 50px;
     width: 370px;

@@ -9,15 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_açoes")
+@Table(name = "tb_acoes")
 public class CadastroAcao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
-	
+
 	private String tiker;
 	private String empresa;
+	private String subSetor;
 
 	@Enumerated(EnumType.STRING)
 	private TipoConta tipoConta;
@@ -63,6 +64,22 @@ public class CadastroAcao {
 
 	public void setSetor(Setor setor) {
 		this.setor = setor;
+	}
+
+	public String getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
+
+	public String getSubSetor() {
+		return subSetor;
+	}
+
+	public void setSubSetor(String subSetor) {
+		this.subSetor = subSetor;
 	}
 
 	@Override

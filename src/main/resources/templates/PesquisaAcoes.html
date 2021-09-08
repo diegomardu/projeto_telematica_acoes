@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{LayoutPadrao}">
+
+<head>
+	<title>IFPB³ | Pesquisa de Ações</title>
+</head>
+
+<section layout:fragment="conteudo">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="clearfix">
+				<h4 class="panel-title titulo-panel">Pesquisa de Ações</h4>
+				<a class="btn btn-link link-panel" href="/cadastro_acoes/novo">Cadastrar nova ação</a>
+			</div>
+		</div>
+
+		<div class="panel-body">
+			<table class="table table-sm table-hover table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Empresa</th>
+						<th scope="col">Setor</th>
+						<th scope=" col">Sub setor</th>
+						<th scope="col">Tiker</th>
+						<th scope=" col">Tipo de Conta</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="acao : ${acoes}">
+						<td class="text-center" th:text="${acao.codigo}"></td>
+						<td class="text-center" th:text="${acao.empresa}"></td>
+						<td class="text-center" th:text="${acao.setor}"></td>
+						<td class="text-center" th:text="${acao.subSetor}"></td>
+						<td class="text-center" th:text="${acao.tiker}"></td>
+						<td class="text-center" th:text="${acao.tipoConta}"></td>
+						
+					</tr>
+					<tr>
+						<td colspan="6" th:if="${#lists.isEmpty(acoes)}">Nenhuma ação encontrada</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+</section>
+
+</html>

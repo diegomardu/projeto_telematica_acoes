@@ -1,5 +1,7 @@
 package com.projeto.telematica.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,4 +17,10 @@ public class AcoesService {
 	public void salvar(CadastroAcao acao) {
 		acoesRepository.save(acao);				
 	}
+	
+	public List<CadastroAcao> pesquisar(){
+		return acoesRepository.findAll();
+	}
+	
+	
 }

@@ -1,66 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-br"
-        xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8">
-        <title>IFPB³ | Ações</title>
-        <link rel="stylesheet" href="/css/reset.css">
-        <link rel="stylesheet" href="/css/acoes.css">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    </head>
-    <body>
-        <main>
-            <form class="form-container" method="POST" action="/cadastro_acoes">
-            		<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
-            			<span th:text="${mensagem}">Ação salva com sucesso</span>
-            		</div>
-                    <div class="form-container__row">
-                        <label for="tiker" >Papel(TIKER):</label>
-                        <input class="block" id="tiker" type="text" name="tiker" required placeholder="Digite o papel..."/>
-    
-                        <label for="empresa">Empresa:</label>
-                        <input class="block" id="empresa" type="text" name="empresa" required placeholder="Digite o nome de empresa..."/>
-                    </div>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{LayoutPadrao}">
 
-                <div class="form-container__setor">
-                    <fieldset>
-                        <label class="input-box">Tipo da Ação:</label>
-                       	<select name="tipoConta">
-                       		<option value="ACAO_ORDINARIA" id="acoes-ordinarias">Ações Ordinárias(ON)</option>
-                       		<option value="ACAO_PREFERENCIAL" id="acoes-preferencias">Ações Preferênciais(PN)</option>
-                       	</select>
-                     </fieldset>
-                 </div>
-                      
-               <div class="form-container__setor"> 
-                    <label class="input-box">Setor:</label>
-                    <select name="setor">
-                        <option value="BENS_INDUSTRIAIS">Bens Industriais</option>
-                        <option value="COMUNICACOES">Comunicações</option>
-                        <option value="CONSUMO_CICLICO" >Consumo Cíclico</option>
-                        <option value="CONSUMO_NAO_CICLICO">Consumo não Cíclico</option>
-                        <option value="FINANCEIRO">Financeiro</option>
-                        <option value="MATERIAIS_BASICOS" >Materiais Básicos</option>
-                        <option value="PETROLEO_GAS_BIOCOMBUSTIVEIS">Petróleo, Gás e Biocombustíveis</option>
-                        <option value="SAUDE">Saúde</option>
-                        <option value="TECNOLOGIA_DA_INFORMACAO">Tecnologia da Informação</option>
-                        <option value="UTILIDADE_PUBLICA">Utilidade Pública</option>
-                    </select>
-                </div>
+<head>
+	<title>IFPB³ | Ações</title>
+</head>
 
-                <div class="form-container__subsetor">
-                    <label>Subsetor:</label>
-                    <input type="text" required placeholder="Digite um subsetor..."/>
-                </div>
+<section layout:fragment="conteudo">
+	<main>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="clearfix">
+					<h4 class="panel-title titulo-panel text-primary">Nova ação</h4>
+					<a class="btn btn-link link-panel" href="/cadastro_acoes">Voltar para pesquisa</a>
+				</div>
+			</div>
+		</div>
+		<form class="form-container" method="POST" action="/cadastro_acoes">
+			<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+				<span th:text="${mensagem}">Ação salva com sucesso</span>
+			</div>
+			<div class="form-container__row">
+				<label for="tiker">Papel(TIKER):</label>
+				<input class="block" id="tiker" type="text" name="tiker" required placeholder="Digite o papel..." />
 
-                
-                
-               <!-- <div class="form-container__cotacoes">
+				<label for="empresa">Empresa:</label>
+				<input class="block" id="empresa" type="text" name="empresa" required
+					placeholder="Digite o nome de empresa..." />
+			</div>
+
+			<div class="form-container__setor">
+				<fieldset>
+					<label class="input-box">Tipo da Ação:</label>
+					<select class="custom-select" name="tipoConta">
+						<option th:each="conta : ${todosTipoConta}" th:value="${conta}" th:text="${conta.descricao}">
+						</option>
+					</select>
+				</fieldset>
+			</div>
+
+			<div class="form-container__setor">
+				<label class="input-box">Setor:</label>
+				<select class="custom-select" name="setor">
+					<option th:each="setor : ${todosSetores}" th:value="${setor}" th:text="${setor.descricao}"></option>
+				</select>
+			</div>
+
+			<div class="form-container__subsetor">
+				<label>Subsetor:</label>
+				<input type="text" name="subSetor" required placeholder="Digite um subsetor..." />
+			</div>
+
+
+
+			<!-- <div class="form-container__cotacoes">
                     <h2>Cotações:</h2>
                     <div class="form-container__cotacoes_box">
                         <div class="form-container__cotacoes__abertura-fechamento">
@@ -74,12 +67,13 @@
                     </div>
                 </div>-->
 
-                <div class="form-container__button">
-                    <button type="submit"> Cadastrar</button>
-                </div>
+			<div class="form-container__button">
+				<button type="submit"> Cadastrar</button>
+			</div>
 
-            </form>
-        </main>
+		</form>
+	</main>
 
-    </body>
+</section>
+
 </html>
