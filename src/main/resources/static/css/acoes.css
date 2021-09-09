@@ -4,23 +4,53 @@ body{
 }
 
 header{
-    background: linear-gradient(90deg, #647C9C, #2FBCE8);
-    height:200px;
+
+    height:130px;
+    display: flex;
+    background-color: white;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom:20px;
+    padding:20px;
+    position:fixed;
+}
+.header-row{
+    width:33.3%;
+    display:flex;
+    justify-content:center;
+    align-item:center;
+
 }
 
-main{
-    background:black;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 20px;
-    min-width: 100%;
+header a{
+    color:black;
+    font-weight:bold;
 }
+header a:hover{
+    text-decoration:none;
+}
+
+header h4{
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2em;
+
+}
+
+header img{
+    height:100%
+}
+
+
 
 .alert{
 	margin-left: 10px;
 	margin-right: 10px;
+	height:42px
 }
+
 
 .block{
     display: block;
@@ -29,13 +59,23 @@ main{
     margin-bottom: 35px;
 }
 
+.content__box{
+    padding:160px 0  20px 0px;
+    background-image: url("fig02.jpg");
+    background-repeat: no-repeat;
+    background-position-y: calc(130px - 100%);
+    background-size: cover;
+    height: 901px;
+}
+
 .form-container{
     border-radius: 10px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
     width: 50%;
     height: 100%;
-    margin: 0 auto;
+    margin: 5px auto;
     padding: 50px;
+
 }
 
 .form-container input{
@@ -46,6 +86,7 @@ main{
     font-weight: bold;
     padding: 5px;
     background-color:#f3f3f3 ;
+    height:40px;
 }
 
 .form-container input:focus{
@@ -72,16 +113,8 @@ main{
 
 .form-container__acoes{
     padding: 5px 5px 35px 5px;
-}
-
-.form-container__acoes fieldset{
-    display: flex;
-    flex-direction: column;
-}
-
-.form-container__acoes div{
-    vertical-align: middle;
-    padding: 5px;
+    display:flex;
+    flex-direction:column;
 }
 
 .form-container__acoes input{
@@ -111,7 +144,7 @@ main{
 }
 
 .form-container__subsetor input{
-    height: 30px;
+    height: 40px;
 }
 
 .form-container__setor select{
@@ -157,44 +190,80 @@ main{
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 35px;
-}
 
-.link-panel{
-	float:right;
-	padding:0px;
-}
-
-.titulo-panel{
-	float:left;
-	padding:2px;
 }
 
 button{
     height: 50px;
-    width: 370px;
-    background-color: #6800CA;
+    width: 370px;;
     border-radius: 5px;
+    background-color: #FFB047;
     border: 0;
     text-transform: uppercase;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     font-size: 17px;
-    color:white;
+    color:black;
 }
 
 button:hover{
     transform: scale(1.1);
     transition-duration: 1000ms;
-    background-color:#5506a0;
+    background-color:orange;
     cursor: pointer;
     box-shadow: 1px 1px 1px 1px #aaaaaa;
 }
 
-
-
 footer{
-    background: linear-gradient(90deg, #973D52, #37B3DE);
-    height: 200px;
-    width: 100%;
+       background: white;
+       height: 200px;
+       display: flex;
+       justify-content: space-around;
+       margin-top: 20px;
+       align-items:center;
+}
+
+footer .contato {
+        width: 33.3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+
+footer .contato p{
+    margin:5px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+footer .redes-sociais {
+     display:flex;
+     justify-content: space-around;
+     width:33.3%;
+
+}
+
+.redes-sociais a {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:33.3%;
+    font-weight:bold;
+}
+
+.logo p{
+    font-size:11px;
+    margin-top:10px;
+}
+
+.redes-sociais a:hover{
+    text-decoration:none;
 }
