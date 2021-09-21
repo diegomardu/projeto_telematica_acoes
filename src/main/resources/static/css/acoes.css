@@ -4,18 +4,21 @@ body{
 }
 
 header{
-
-    height:130px;
+    position: fixed;
+    display: flex;flex-direction: column;
+    height:208px;
+    width: 100%;
+}
+.header-first__line{
     display: flex;
     background-color: white;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
-    margin-bottom:20px;
-    padding:20px;
-    position:fixed;
+    height: 160px;
+
 }
-.header-row{
+
+.header-first__line .header-row{
     width:33.3%;
     display:flex;
     justify-content:center;
@@ -23,10 +26,29 @@ header{
 
 }
 
-header a{
-    color:black;
-    font-weight:bold;
+header nav {
+    background-color: black;
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
 }
+
+header nav .header-row{
+    display: flex;
+    height: 100%;
+    border-right: 1px solid white;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+header a{
+    color: white;
+    font-weight: bold;
+    display: flex;
+}
+
 header a:hover{
     text-decoration:none;
 }
@@ -60,12 +82,12 @@ header img{
 }
 
 .content__box{
-    padding:160px 0  20px 0px;
+    padding:250px 0  20px 0px;
     background-image: url("fig02.jpg");
     background-repeat: no-repeat;
     background-position-y: calc(130px - 100%);
     background-size: cover;
-    height: 901px;
+    height: 950px;
 }
 
 .form-container{
@@ -266,4 +288,15 @@ footer .redes-sociais {
 
 .redes-sociais a:hover{
     text-decoration:none;
+}
+
+.display-oppacity{
+    opacity: 0;
+    border:transparent;
+    transition-duration: 500ms;
+}
+
+.display-none{
+    display: none;
+    transition-duration: 500ms;
 }
