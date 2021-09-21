@@ -1,0 +1,269 @@
+body{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+
+    height:130px;
+    display: flex;
+    background-color: white;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom:20px;
+    padding:20px;
+    position:fixed;
+}
+.header-row{
+    width:33.3%;
+    display:flex;
+    justify-content:center;
+    align-item:center;
+
+}
+
+header a{
+    color:black;
+    font-weight:bold;
+}
+header a:hover{
+    text-decoration:none;
+}
+
+header h4{
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2em;
+
+}
+
+header img{
+    height:100%
+}
+
+
+
+.alert{
+	margin-left: 10px;
+	margin-right: 10px;
+	height:42px
+}
+
+
+.block{
+    display: block;
+    max-width: 100%;
+    height: 30px;
+    margin-bottom: 35px;
+}
+
+.content__box{
+    padding:160px 0  20px 0px;
+    background-image: url("fig02.jpg");
+    background-repeat: no-repeat;
+    background-position-y: calc(130px - 100%);
+    background-size: cover;
+    height: 901px;
+}
+
+.form-container{
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 50%;
+    height: 100%;
+    margin: 5px auto;
+    padding: 50px;
+
+}
+
+.form-container input{
+    border-radius: 5px;
+    border: 1px solid #a3a1a1;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 5px;
+    background-color:#f3f3f3 ;
+    height:40px;
+}
+
+.form-container input:focus{
+    outline:0;
+    box-shadow: 1px 2px 2px 3px #aaaaaa;
+    border-radius: 5px;
+    border: 0;
+}
+
+.form-container label{
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+.form-container__row{
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px ;
+}
+
+.form-container__acoes{
+    padding: 5px 5px 35px 5px;
+    display:flex;
+    flex-direction:column;
+}
+
+.form-container__acoes input{
+    margin: 0;
+}
+
+.form-container__acoes input:focus{
+    box-shadow: unset;
+}
+
+.form-container__acoes legend{
+   text-transform: uppercase;
+   font-weight: bold;
+   padding-bottom: 10px;
+}
+
+.form-container__setor{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 5px 35px 5px;
+}
+
+.form-container__subsetor{
+    padding: 5px 5px 35px 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container__subsetor input{
+    height: 40px;
+}
+
+.form-container__setor select{
+    height: 40px;
+    outline: 0;
+    border-radius:5px;
+    width: 30%;
+}
+
+.form-container__setor option{
+    text-align: center;
+}
+
+.form-container__cotacoes {
+    max-width: 100%;
+    padding: 5px;
+}
+
+.form-container__cotacoes h2{
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 5px;
+    padding-bottom: 10px;
+}
+
+.form-container__cotacoes_box{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.form-container__cotacoes_box input{
+    min-width: 201px;
+    margin-top: 10px;
+}
+
+.form-container__cotacoes__abertura-fechamento{
+    max-width: 40%;
+}
+
+
+.form-container__button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+button{
+    height: 50px;
+    width: 370px;;
+    border-radius: 5px;
+    background-color: #FFB047;
+    border: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    color:black;
+}
+
+button:hover{
+    transform: scale(1.1);
+    transition-duration: 1000ms;
+    background-color:orange;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 1px #aaaaaa;
+}
+
+footer{
+       background: white;
+       height: 200px;
+       display: flex;
+       justify-content: space-around;
+       margin-top: 20px;
+       align-items:center;
+}
+
+footer .contato {
+        width: 33.3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+
+footer .contato p{
+    margin:5px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+footer .redes-sociais {
+     display:flex;
+     justify-content: space-around;
+     width:33.3%;
+
+}
+
+.redes-sociais a {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:33.3%;
+    font-weight:bold;
+}
+
+.logo p{
+    font-size:11px;
+    margin-top:10px;
+}
+
+.redes-sociais a:hover{
+    text-decoration:none;
+}

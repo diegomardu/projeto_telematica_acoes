@@ -1,5 +1,5 @@
 .content-box{
-    padding:160px 0  20px 0px;
+    padding:45px 0  20px 0px;
     background-image: url("fig02.jpg");
     background-repeat: no-repeat;
     background-position-y: calc(130px - 100%);
@@ -7,11 +7,79 @@
     height: 901px;
 }
 
+.content-box-animation{
+    animation-name: animationBox;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+
+}
+
+.content-box__animation-reverse{
+    animation-name: animationBoxReverse;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes animationBox {
+    0%{padding-top: 45px} 100%{padding-top: 180px}
+}
+
+@keyframes animationBoxReverse {
+    0%{padding-top: 180px} 100%{padding-top: 45px}
+}
+
+.search-box__container{
+    display: flex;
+    max-width: 90%;
+    background-color: #FFB047;
+    border-radius: 10px;
+    border: 2px solid #4F4F4F;
+    justify-content: space-around;
+    height: 168px;
+    align-items: center;
+    margin: 20px auto;
+    flex-wrap: wrap;
+}
+
+.search-box__container label{
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.search-box__row{
+    display: flex;
+    flex-direction: column;
+}
+.search-box__container input{
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #a3a1a1;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 5px;
+    background-color:#f3f3f3 ;
+}
+
+.search-box__container input:focus{
+    outline:0;
+    box-shadow: 1px 2px 2px 3px #aaaaaa;
+    border-radius: 5px;
+    border: 0;
+}
+
 .content-box__content {
     background-color:white;
     overflow:scroll;
+    height: 468px;
 
 }
+
+
 
 .border-container{
     max-width:90%;
@@ -51,7 +119,11 @@
 
 .content-box__content th, td{
     height:35px;
-    padding:5px
+    padding:5px;
+}
+
+.content-box__content tbody tr{
+    border-bottom: 2px solid #4F4F4F;
 }
 
 .content-box__content th{
@@ -63,10 +135,6 @@
     background-color:#FFB047;
 }
 
-.content-box__content td:not(:first-child){
-    border-bottom:2px solid #4F4F4F;
-
-}
 
 .content-box__content td{
     text-align:center;
@@ -84,3 +152,4 @@
     width: 100%;
 
 }
+
