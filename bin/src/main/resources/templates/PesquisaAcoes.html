@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{LayoutPadrao}">
+
+<head>
+	<title>IFPB³ | Pesquisa de Ações</title>
+</head>
+
+<section layout:fragment="conteudo">
+	<div class="panel panel-default">
+		<header class="panel panel-default panel-heading">
+			<div class="header-row">
+				<img src="/css/fig01.png">
+			</div>
+			<div class="header-row">
+				<h4 >Pesquisa de Ações</h4>
+			</div>
+			<div class="header-row">
+				<a  href="/cadastro_acoes/novo">Cadastrar novas ações</a>
+			</div>
+		</header>
+
+		<div class="content-box">
+			<div class="border-container">
+				<div class="content-box__content">
+					<table class = "table-container__table">
+						<thead >
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Empresa</th>
+								<th scope="col">Setor</th>
+								<th scope=" col">Sub setor</th>
+								<th scope="col">Tiker</th>
+								<th scope=" col">Tipo de Conta</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="acao : ${acoes}">
+								<td class="text-center" th:text="${acao.codigo}"></td>
+								<td class="text-center" th:text="${acao.empresa}"></td>
+								<td class="text-center" th:text="${acao.setor}"></td>
+								<td class="text-center" th:text="${acao.subSetor}"></td>
+								<td class="text-center" th:text="${acao.tiker}"></td>
+								<td class="text-center" th:text="${acao.tipoConta}"></td>
+
+							</tr>
+							<tr>
+								<td colspan="6" th:if="${#lists.isEmpty(acoes)}">Nenhuma ação encontrada</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="contato">
+				<p>Contato: contato@contatoIFPB3FICTÍCIO.com</p>
+				<p>Atendimento ao cliente: (xx) xx xxxx-xxxx</p>
+				<p>Funcionamento segunda à sexta de 9:00hrs ás 18:00hrs</p>
+			</div>
+			<div class="logo">
+				<img src="/css/fig01.png">
+				<p>Todos os direitos reservados ao IFPB3 &copy;</p>
+			</div>
+			<div class="redes-sociais">
+				<a href="#" class="fa fa-facebook"></a>
+				<a href="#" class="fa fa-twitter"></a>
+				<a href="#" class="fa fa-instagram"></a>
+				<a href="#" class="fa fa-linkedin"></a>
+				<a href="#" class="fa fa-rss"></a>
+			</div>
+		</footer>
+	</div>
+</section>
+</html>
