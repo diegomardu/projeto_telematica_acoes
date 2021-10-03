@@ -62,6 +62,7 @@ header h4{
     text-transform: uppercase;
     font-weight: bold;
     font-size: 2em;
+    display: flex;
 
 }
 

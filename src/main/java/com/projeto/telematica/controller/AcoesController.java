@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -26,6 +27,8 @@ public class AcoesController {
 
 	private static final String CADASTRO_ACOES = "acoes";
 	private static final String PESQUISA_ACOES = "PesquisaAcoes";
+	private static final String VERIFICAR_ACOES = "formVerificar";
+	private static final String EDITAR_ACOES = "EditPage";
 
 	@Autowired
 	private AcoesService acoesService;
@@ -37,7 +40,16 @@ public class AcoesController {
 	public ModelAndView novo() {
 		ModelAndView mv = new ModelAndView(CADASTRO_ACOES);
 		mv.addObject(new CadastroAcao());
+
+	}
+
+	@RequestMapping("/verificar/{id}")
+	public ModelAndView verificar(@PathVariable("id")Long id) {
+		ModelAndView mv = new ModelAndView(VERIFICAR_ACOES);
+		Optional<CadastroAcao> acao= acoesService.getAcaoById(id);
+		mv.addObject("acao",acao.get());
 		return mv;
+
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -51,6 +63,7 @@ public class AcoesController {
 
 	}
 
+
 	@RequestMapping
 	public ModelAndView BuscarAcao() {
 		List<CadastroAcao> todasAcoes = acoesService.pesquisar();
@@ -59,12 +72,29 @@ public class AcoesController {
 		return mv;
 	}
 
+
+	@RequestMapping("/editar_acao/{id}")
+	public ModelAndView editar(@PathVariable("id")Long id) {
+		ModelAndView mv =  new ModelAndView(EDITAR_ACOES);
+		Optional<CadastroAcao> acao= acoesService.getAcaoById(id);
+		mv.addObject("acao",acao.get());
+		return mv;
+	}
+
+	@RequestMapping("/edit/{id}")
+	public String editbyId(CadastroAcao acao) {
+		System.out.println(acao.getCodigo().getClass());
+		acoesService.updateById(acao);
+		return "redirect:/cadastro_acoes";
+	}
+
 	@RequestMapping("{codigo}")
 	public ModelAndView editar(@PathVariable("codigo") CadastroAcao acao) {
 		ModelAndView mv =  new ModelAndView(CADASTRO_ACOES);
 		mv.addObject(acao);
 		return mv;
 	}
+
 	
 	@RequestMapping("/delete/{codigo}")
 	public String exlcuir(@PathVariable("codigo")Long codigo) {
