@@ -40,7 +40,7 @@ public class AcoesController {
 	public ModelAndView novo() {
 		ModelAndView mv = new ModelAndView(CADASTRO_ACOES);
 		mv.addObject(new CadastroAcao());
-		return mv;
+
 	}
 
 	@RequestMapping("/verificar/{id}")
@@ -49,6 +49,7 @@ public class AcoesController {
 		Optional<CadastroAcao> acao= acoesService.getAcaoById(id);
 		mv.addObject("acao",acao.get());
 		return mv;
+
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -71,6 +72,7 @@ public class AcoesController {
 		return mv;
 	}
 
+
 	@RequestMapping("/editar_acao/{id}")
 	public ModelAndView editar(@PathVariable("id")Long id) {
 		ModelAndView mv =  new ModelAndView(EDITAR_ACOES);
@@ -85,6 +87,14 @@ public class AcoesController {
 		acoesService.updateById(acao);
 		return "redirect:/cadastro_acoes";
 	}
+
+	@RequestMapping("{codigo}")
+	public ModelAndView editar(@PathVariable("codigo") CadastroAcao acao) {
+		ModelAndView mv =  new ModelAndView(CADASTRO_ACOES);
+		mv.addObject(acao);
+		return mv;
+	}
+
 	
 	@RequestMapping("/delete/{codigo}")
 	public String exlcuir(@PathVariable("codigo")Long codigo) {
