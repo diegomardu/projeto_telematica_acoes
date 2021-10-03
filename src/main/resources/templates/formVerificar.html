@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{LayoutPadrao}">
+
+<head>
+    <title>IFPB³ | Visualizar Ação</title>
+</head>
+<body>
+<main>
+    <section layout:fragment="conteudo">
+        <header class="panel panel-default panel-heading">
+            <div class="header-first__line">
+                <div class="header-row">
+                    <img src="/css/fig01.png">
+                </div>
+                <div class="header-row">
+                    <h4>Ações da empresa &nbsp<div th:text="${acao.getEmpresa()}"></div></h4>
+                </div>
+                <div class="header-row">
+
+                </div>
+            </div>
+            <nav>
+                <div class="header-row">
+                    <a  href="/cadastro_acoes">Voltar para pesquisa</a>
+                </div>
+                <div class="header-row">
+                    <a  href="/formVerificar">Voltar para pesquisa</a>
+                </div>
+                <div class="header-row">
+                    <a  href="/cadastro_acoes">Voltar para pesquisa</a>
+                </div>
+                <div class="header-row">
+                    <a  href="/cadastro_acoes">Voltar para pesquisa</a>
+                </div>
+                <div class="header-row">
+                    <a  href="/cadastro_acoes">Voltar para pesquisa</a>
+                </div>
+            </nav>
+        </header>
+        <div class="content__box " id="padding180px">
+            <div class="table-info-action">
+                <div class="table-info-action__row">
+                    <div class="table-info-action__info">
+                        <p>identificação:<span class="teste" th:text="${acao.getCodigo()}"> </span></p>
+                    </div>
+
+                    <div class="table-info-action__info">
+                        <p>empresa:<span class="teste" th:text="${acao.getEmpresa()}"> </span></p>
+                    </div>
+                </div>
+
+                <div class="table-info-action__row">
+                    <div class="table-info-action__info" >
+                        <p>Setor:<span class="teste" th:text="${acao.setor}"></span></p>
+                    </div>
+
+                    <div class="table-info-action__info">
+                        <p>subsetor:<span class="teste" th:text="${acao.subSetor}"></span></p>
+                    </div>
+                </div>
+
+                <div class="table-info-action__row">
+                    <div class="table-info-action__info">
+                        <p>tiker:<span class="teste" th:text="${acao.tiker}"></span></p>
+                    </div>
+
+                    <div class="table-info-action__info">
+                        <p>tipo de conta:<span class="teste" th:text="${acao.tipoConta}"></span></p>
+                    </div>
+                </div>
+            </div >
+            <div class="cotation-container">
+                <div class="cotation-container__left">
+                        <form class="cotation-container__form">
+                            <div class="cotation-container__form-row">
+                                <label>Valor Mínimo<input type="text"></label>
+                                <label>Valor Mánimo<input type="text"></label>
+                            </div>
+
+                            <div class="cotation-container__form-row">
+                                <label>Cotação de abertura<input type="text"></label>
+                                <label>Cotação de fechamento<input type="text"></label>
+
+                            </div>
+                            <div class="cotation-container__form-row-button-box">
+                                <button type="submit">criar cotação</button>
+
+                            </div>
+                        </form>
+                </div>
+                <div class="border-container" id="height300">
+                    <div class="content-box__content" >
+                        <table class="table-container__table" id="width100">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        colunamockada
+                                    </th>
+                                    <th>
+                                        colunamockada
+                                    </th>
+                                    <th>
+                                        colunamockada
+                                    </th>
+                                    <th>
+                                        colunamockada
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        linhaMockada
+                                    </td>
+                                    <td>
+                                        linhaMockada
+                                    </td>
+                                    <td>
+                                        linhaMockada
+                                    </td>
+                                    <td>
+                                        linhaMockada
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="contato">
+                <p>Contato: contato@contatoIFPB3FICTÍCIO.com</p>
+                <p>Atendimento ao cliente: (xx) xx xxxx-xxxx</p>
+                <p>Funcionamento segunda à sexta de 9:00hrs ás 18:00hrs</p>
+            </div>
+            <div class="logo">
+                <img src="/css/fig01.png">
+                <p>Todos os direitos reservados ao IFPB3 &copy;</p>
+            </div>
+            <div class="redes-sociais">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="#" class="fa fa-rss"></a>
+            </div>
+        </footer>
+    </section>
+</main>
+
+</body>
+<
