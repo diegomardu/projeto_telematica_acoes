@@ -65,6 +65,15 @@ public class AcoesController {
 		mv.addObject(acao);
 		return mv;
 	}
+<<<<<<< HEAD
+=======
+	
+	@RequestMapping("/delete/{codigo}")
+	public String exlcuir(@PathVariable("codigo")Long codigo) {
+		acoesRepository.deleteById(codigo);
+		return "redirect:/cadastro_acoes";
+	}
+>>>>>>> 06a3d1117e8a068d683f227aa78056d90224f7dd
 
 	@ModelAttribute("todosTipoConta")
 	public List<TipoConta> todosTipoConta() {
