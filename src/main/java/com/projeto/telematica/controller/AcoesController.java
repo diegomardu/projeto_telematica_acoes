@@ -40,7 +40,7 @@ public class AcoesController {
 	public ModelAndView novo() {
 		ModelAndView mv = new ModelAndView(CADASTRO_ACOES);
 		mv.addObject(new CadastroAcao());
-
+		return mv;
 	}
 
 	@RequestMapping("/verificar/{id}")
