@@ -40,7 +40,7 @@ public class AcoesController {
 	public ModelAndView novo() {
 		ModelAndView mv = new ModelAndView(CADASTRO_ACOES);
 		mv.addObject(new CadastroAcao());
-
+		return mv;
 	}
 
 	@RequestMapping("/verificar/{id}")
@@ -95,12 +95,12 @@ public class AcoesController {
 		return mv;
 	}
 
-	
 	@RequestMapping("/delete/{codigo}")
 	public String exlcuir(@PathVariable("codigo")Long codigo) {
 		acoesRepository.deleteById(codigo);
 		return "redirect:/cadastro_acoes";
 	}
+
 
 	@ModelAttribute("todosTipoConta")
 	public List<TipoConta> todosTipoConta() {
