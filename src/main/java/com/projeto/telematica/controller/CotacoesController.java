@@ -1,5 +1,6 @@
 package com.projeto.telematica.controller;
 
+import com.projeto.telematica.model.CadastroAcao;
 import com.projeto.telematica.model.CadastroCotacao;
 import com.projeto.telematica.repository.CotacoesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/cotacoes")
@@ -32,14 +34,21 @@ public class CotacoesController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView CadastrarCotacao(@Validated CadastroCotacao cadastroCotacao) {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         cadastroCotacao.setData(df.format(date));
         cotacoesRepository.save(cadastroCotacao);
-        ModelAndView mv = new ModelAndView(PESQUISA_ACOES);
-        mv.addObject("mensagem", "Cotação salva com sucesso!!");
+        ModelAndView mv = new ModelAndView(CADASTRO_COTACOES);
         return mv;
 
+    }
+
+    @RequestMapping
+    public ModelAndView BuscarCotacao() {
+        List<CadastroCotacao> todasCotacoes = cotacoesRepository.findAll();
+        ModelAndView mv = new ModelAndView(CADASTRO_COTACOES);
+        mv.addObject("cotacoes", todasCotacoes);
+        return mv;
     }
 
 }

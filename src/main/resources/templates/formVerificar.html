@@ -74,13 +74,13 @@
                 <div class="cotation-container__left">
                         <form class="cotation-container__form" method="POST" th:action="@{/cotacoes}">
                             <div class="cotation-container__form-row">
-                                <label>Valor Mínimo<input id="valorMinimo" type="valorMinimo" name="valorMinimo"></label>
-                                <label>Valor Máximo<input id="valorMaximo" type="valorMaximo" name="valorMaximo"></label>
+                                <label>Valor Mínimo<input class="js-currency" id="valorMinimo" type="valorMinimo" name="valorMinimo"></label>
+                                <label>Valor Máximo<input class="js-currency" id="valorMaximo" type="valorMaximo" name="valorMaximo"></label>
                             </div>
 
                             <div class="cotation-container__form-row">
-                                <label>Cotação de abertura<input id="cotacaoAbertura" type="cotacaoAbertura" name="cotacaoAbertura"></label>
-                                <label>Cotação de fechamento<input id="cotacaoFechamento" type="cotacaoFechamento" name="cotacaoFechamento"></label>
+                                <label>Cotação de abertura<input class="js-currency" id="cotacaoAbertura" type="cotacaoAbertura" name="cotacaoAbertura"></label>
+                                <label>Cotação de fechamento<input class="js-currency" id="cotacaoFechamento" type="cotacaoFechamento" name="cotacaoFechamento"></label>
 
                             </div>
                             <div class="cotation-container__form-row-button-box">
@@ -94,35 +94,19 @@
                         <table class="table-container__table" id="width100">
                             <thead>
                                 <tr>
-                                    <th>
-                                        colunamockada
-                                    </th>
-                                    <th>
-                                        colunamockada
-                                    </th>
-                                    <th>
-                                        colunamockada
-                                    </th>
-                                    <th>
-                                        colunamockada
-                                    </th>
-
+                                    <th>Cotação de abertura</th>
+                                    <th>Cotação de fechamento</th>
+                                    <th>Valor Máximo</th>
+                                    <th>Valor Minimo</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        linhaMockada
-                                    </td>
-                                    <td>
-                                        linhaMockada
-                                    </td>
-                                    <td>
-                                        linhaMockada
-                                    </td>
-                                    <td>
-                                        linhaMockada
-                                    </td>
+                                <tr class="table-row" th:each="cotacao : ${cotacoes}">
+                                    <td class="text-center" th:text="${cotacao.cotacaoAbertura}"></td>
+                                    <td class="text-center" th:text="${cotacao.cotacaoFechamento}"></td>
+                                    <td class="text-center" th:text="${cotacao.valorMaximo}"></td>
+                                    <td class="text-center" th:text="${cotacao.valorMinimo}"></td>
+                                    <td class="text-center">
                                 </tr>
                             </tbody>
                         </table>

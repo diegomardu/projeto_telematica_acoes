@@ -1,9 +1,11 @@
 package com.projeto.telematica.model;
 
 
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -16,10 +18,17 @@ public class CadastroCotacao implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double valorMinimo;
-    private Double valorMaximo;
-    private Double cotacaoAbertura;
-    private Double cotacaoFechamento;
+    @NumberFormat(pattern = "#,##0.00")
+    private BigDecimal valorMinimo;
+
+    @NumberFormat(pattern = "#,##0.00")
+    private BigDecimal valorMaximo;
+
+    @NumberFormat(pattern = "#,##0.00")
+    private BigDecimal cotacaoAbertura;
+
+    @NumberFormat(pattern = "#,##0.00")
+    private BigDecimal cotacaoFechamento;
     private String data;
 
     @ManyToOne
@@ -42,35 +51,35 @@ public class CadastroCotacao implements Serializable {
         this.id = id;
     }
 
-    public Double getValorMinimo() {
+    public BigDecimal getValorMinimo() {
         return valorMinimo;
     }
 
-    public void setValorMinimo(Double valorMinimo) {
+    public void setValorMinimo(BigDecimal valorMinimo) {
         this.valorMinimo = valorMinimo;
     }
 
-    public Double getValorMaximo() {
+    public BigDecimal getValorMaximo() {
         return valorMaximo;
     }
 
-    public void setValorMaximo(Double valorMaximo) {
+    public void setValorMaximo(BigDecimal valorMaximo) {
         this.valorMaximo = valorMaximo;
     }
 
-    public Double getCotacaoAbertura() {
+    public BigDecimal getCotacaoAbertura() {
         return cotacaoAbertura;
     }
 
-    public void setCotacaoAbertura(Double cotacaoAbertura) {
+    public void setCotacaoAbertura(BigDecimal cotacaoAbertura) {
         this.cotacaoAbertura = cotacaoAbertura;
     }
 
-    public Double getCotacaoFechamento() {
+    public BigDecimal getCotacaoFechamento() {
         return cotacaoFechamento;
     }
 
-    public void setCotacaoFechamento(Double cotacaoFechamento) {
+    public void setCotacaoFechamento(BigDecimal cotacaoFechamento) {
         this.cotacaoFechamento = cotacaoFechamento;
     }
 
