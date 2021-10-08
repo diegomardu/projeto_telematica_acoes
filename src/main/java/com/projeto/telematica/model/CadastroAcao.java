@@ -84,6 +84,14 @@ public class CadastroAcao implements Serializable {
 		this.subSetor = subSetor;
 	}
 
+	public List<CadastroCotacao> getCotacoes() {
+		return cotacoes;
+	}
+
+	public void setCotacoes(List<CadastroCotacao> cotacoes) {
+		this.cotacoes = cotacoes;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
