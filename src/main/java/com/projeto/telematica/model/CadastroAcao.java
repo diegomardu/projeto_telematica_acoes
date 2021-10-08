@@ -1,16 +1,15 @@
 package com.projeto.telematica.model;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_acoes")
-public class CadastroAcao {
+public class CadastroAcao implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +24,9 @@ public class CadastroAcao {
 
 	@Enumerated(EnumType.STRING)
 	private Setor setor;
+
+	@OneToMany(mappedBy = "acao")
+	private List<CadastroCotacao> cotacoes = new ArrayList<>();
 
 	public Long getCodigo() {
 		return codigo;

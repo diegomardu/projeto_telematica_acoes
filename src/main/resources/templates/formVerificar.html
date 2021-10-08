@@ -72,15 +72,15 @@
             </div >
             <div class="cotation-container">
                 <div class="cotation-container__left">
-                        <form class="cotation-container__form">
+                        <form class="cotation-container__form" method="POST" th:action="@{/cotacoes}">
                             <div class="cotation-container__form-row">
-                                <label>Valor Mínimo<input type="text"></label>
-                                <label>Valor Mánimo<input type="text"></label>
+                                <label>Valor Mínimo<input id="valorMinimo" type="valorMinimo" name="valorMinimo"></label>
+                                <label>Valor Máximo<input id="valorMaximo" type="valorMaximo" name="valorMaximo"></label>
                             </div>
 
                             <div class="cotation-container__form-row">
-                                <label>Cotação de abertura<input type="text"></label>
-                                <label>Cotação de fechamento<input type="text"></label>
+                                <label>Cotação de abertura<input id="cotacaoAbertura" type="cotacaoAbertura" name="cotacaoAbertura"></label>
+                                <label>Cotação de fechamento<input id="cotacaoFechamento" type="cotacaoFechamento" name="cotacaoFechamento"></label>
 
                             </div>
                             <div class="cotation-container__form-row-button-box">
