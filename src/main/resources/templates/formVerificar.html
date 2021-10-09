@@ -72,17 +72,19 @@
             </div >
             <div class="cotation-container">
                 <div class="cotation-container__left">
-                        <form class="cotation-container__form" method="POST" th:action="@{/cotacoes}">
+                        <form class="cotation-container__form" method="POST" th:action="@{/cotacoes}" th:object="${cadastroCotacao}">
                             <div class="cotation-container__form-row">
-                                <label>Valor Mínimo<input class="js-currency" id="valorMinimo" type="valorMinimo" name="valorMinimo"></label>
-                                <label>Valor Máximo<input class="js-currency" id="valorMaximo" type="valorMaximo" name="valorMaximo"></label>
+                                <label>Valor Mínimo<input class="js-currency" id="valorMinimo" type="valorMinimo" name="valorMinimo" required></label>
+                                <label>Valor Máximo<input class="js-currency" id="valorMaximo" type="valorMaximo" name="valorMaximo" required></label>
                             </div>
 
                             <div class="cotation-container__form-row">
-                                <label>Cotação de abertura<input class="js-currency" id="cotacaoAbertura" type="cotacaoAbertura" name="cotacaoAbertura"></label>
-                                <label>Cotação de fechamento<input class="js-currency" id="cotacaoFechamento" type="cotacaoFechamento" name="cotacaoFechamento"></label>
+                                <label>Cotação de abertura<input class="js-currency" id="cotacaoAbertura" type="cotacaoAbertura" name="cotacaoAbertura" required></label>
+                                <label>Cotação de fechamento<input class="js-currency" id="cotacaoFechamento" type="cotacaoFechamento" name="cotacaoFechamento" required></label>
 
                             </div>
+
+                            <input  th:value="${acao.getCodigo()}" id="acaoID" type="hidden" name="acaoID">
                             <div class="cotation-container__form-row-button-box">
                                 <button type="submit">criar cotação</button>
 
@@ -101,12 +103,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="table-row" th:each="cotacao : ${cotacoes}">
-                                    <td class="text-center" th:text="${cotacao.cotacaoAbertura}"></td>
-                                    <td class="text-center" th:text="${cotacao.cotacaoFechamento}"></td>
-                                    <td class="text-center" th:text="${cotacao.valorMaximo}"></td>
-                                    <td class="text-center" th:text="${cotacao.valorMinimo}"></td>
-                                    <td class="text-center">
+                                <tr class="table-row" th:each=" cotacao : ${acao.getCotacoes()}">
+                                    <td class="text-center" th:text="${cotacao.getCotacaoAbertura()}"></td>
+                                    <td class="text-center" th:text="${cotacao.getCotacaoFechamento()}"></td>
+                                    <td class="text-center" th:text="${cotacao.getValorMaximo()}"></td>
+                                    <td class="text-center" th:text="${cotacao.getValorMinimo()}"></td>
                                 </tr>
                             </tbody>
                         </table>

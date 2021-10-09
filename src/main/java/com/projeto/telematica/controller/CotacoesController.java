@@ -1,8 +1,10 @@
 package com.projeto.telematica.controller;
 
+import com.projeto.telematica.DTO.CadastroCotacaoDTO;
 import com.projeto.telematica.model.CadastroAcao;
 import com.projeto.telematica.model.CadastroCotacao;
 import com.projeto.telematica.repository.CotacoesRepository;
+import com.projeto.telematica.service.AcoesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -10,9 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -25,6 +24,9 @@ public class CotacoesController {
     @Autowired
     CotacoesRepository cotacoesRepository;
 
+    @Autowired
+    AcoesService acoesService;
+
     @RequestMapping("/novo")
     public ModelAndView novo(){
         ModelAndView mv = new ModelAndView(CADASTRO_COTACOES);
@@ -33,12 +35,12 @@ public class CotacoesController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView CadastrarCotacao(@Validated CadastroCotacao cadastroCotacao) {
-        DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        cadastroCotacao.setData(df.format(date));
-        cotacoesRepository.save(cadastroCotacao);
+    public ModelAndView CadastrarCotacao(@Validated CadastroCotacaoDTO cadastroCotacaoDTO) {
+        CadastroCotacao cotacao = cadastroCotacaoDTO.toTransformModel();
+        cotacoesRepository.save(cotacao);
+        CadastroAcao acao = acoesService.getAcaoById(cotacao.getAcao().getCodigo()).get();
         ModelAndView mv = new ModelAndView(CADASTRO_COTACOES);
+        mv.addObject("acao",acao);
         return mv;
 
     }
