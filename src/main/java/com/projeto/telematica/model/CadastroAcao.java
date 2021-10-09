@@ -28,6 +28,17 @@ public class CadastroAcao implements Serializable {
 	@OneToMany(mappedBy = "acao")
 	private List<CadastroCotacao> cotacoes = new ArrayList<>();
 
+	@OneToMany(mappedBy = "acao")
+	private List<CadastroBalanco> balancos = new ArrayList<>();
+
+	public List<CadastroBalanco> getBalancos() {
+		return balancos;
+	}
+
+	public void setBalancos(List<CadastroBalanco> balancos) {
+		this.balancos = balancos;
+	}
+
 	public Long getCodigo() {
 		return codigo;
 	}

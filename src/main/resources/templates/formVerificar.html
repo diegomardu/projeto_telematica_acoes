@@ -96,6 +96,7 @@
                         <table class="table-container__table" id="width100">
                             <thead>
                                 <tr>
+                                    <th>Data</th>
                                     <th>Cotação de abertura</th>
                                     <th>Cotação de fechamento</th>
                                     <th>Valor Máximo</th>
@@ -104,6 +105,7 @@
                             </thead>
                             <tbody>
                                 <tr class="table-row" th:each=" cotacao : ${acao.getCotacoes()}">
+                                    <td class="text-center" th:text="${cotacao.getData()}"></td>
                                     <td class="text-center" th:text="${cotacao.getCotacaoAbertura()}"></td>
                                     <td class="text-center" th:text="${cotacao.getCotacaoFechamento()}"></td>
                                     <td class="text-center" th:text="${cotacao.getValorMaximo()}"></td>
