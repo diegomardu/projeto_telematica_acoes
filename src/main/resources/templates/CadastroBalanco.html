@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{LayoutPadrao}">
+<head>
+    <meta charset="UTF-8">
+    <title>IFPB³ | Balanço</title>
+</head>
+<section layout:fragment="conteudo">
+    <div class="cotation-container__left">
+        <h1>Cadatrar Balanço</h1>
+        <form class="form-container" method="POST" th:action="@{/balanco}">
+            <label>Receita Liquida</label>
+            <input class="block" id="receitaLiquida" type="text" name="receitaLiquida">
+            <label>Custos</label>
+            <input class="block" id="custos" type="text" name="custos">
+            <label>Lucro Bruto</label>
+            <input class="block" id="lucroBruto" type="text" name="lucroBruto">
+            <label>Lucro Liquido</label>
+            <input class="block" id="lucroLiquido" type="text" name="lucroLiquido">
+            <label>Despesas Operacionais</label>
+            <input class="block" id="despesaOperacional" type="text" name="despesaOperacional">
+            <label>EBITIDA</label>
+            <input class="block" id="ebitida" type="text" name="ebitida">
+            <button type="submit"> Cadastrar</button>
+        </form>
+    </div>
+    <div class="border-container" id="height300">
+        <div class="content-box__content" >
+            <table class="table-container__table" id="width100">
+                <thead>
+                <tr>
+                    <th>Receita Liquida</th>
+                    <th>Custos</th>
+                    <th>Lucro Bruto</th>
+                    <th>Lucro Liquido</th>
+                    <th>Despesas Operacionais</th>
+                    <th>EBITIDA</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="table-row" th:each="balanco : ${balancos}">
+                    <td class="text-center" th:text="${balanco.receitaLiquida}"></td>
+                    <td class="text-center" th:text="${balanco.custos}"></td>
+                    <td class="text-center" th:text="${balanco.lucroBruto}"></td>
+                    <td class="text-center" th:text="${balanco.lucroLiquido}"></td>
+                    <td class="text-center" th:text="${balanco.despesaOperacional}"></td>
+                    <td class="text-center" th:text="${balanco.ebitida}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+</section>
+</html>
