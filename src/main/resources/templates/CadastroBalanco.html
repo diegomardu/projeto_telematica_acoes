@@ -5,50 +5,104 @@
     <meta charset="UTF-8">
     <title>IFPB³ | Balanço</title>
 </head>
-<section layout:fragment="conteudo">
-    <div class="cotation-container__left">
-        <h1>Cadatrar Balanço</h1>
-        <form class="form-container" method="POST" th:action="@{/balanco}">
-            <label>Receita Liquida</label>
-            <input class="block" id="receitaLiquida" type="text" name="receitaLiquida">
-            <label>Custos</label>
-            <input class="block" id="custos" type="text" name="custos">
-            <label>Lucro Bruto</label>
-            <input class="block" id="lucroBruto" type="text" name="lucroBruto">
-            <label>Lucro Liquido</label>
-            <input class="block" id="lucroLiquido" type="text" name="lucroLiquido">
-            <label>Despesas Operacionais</label>
-            <input class="block" id="despesaOperacional" type="text" name="despesaOperacional">
-            <label>EBITIDA</label>
-            <input class="block" id="ebitida" type="text" name="ebitida">
-            <button type="submit"> Cadastrar</button>
-        </form>
-    </div>
-    <div class="border-container" id="height300">
-        <div class="content-box__content" >
-            <table class="table-container__table" id="width100">
-                <thead>
-                <tr>
-                    <th>Receita Liquida</th>
-                    <th>Custos</th>
-                    <th>Lucro Bruto</th>
-                    <th>Lucro Liquido</th>
-                    <th>Despesas Operacionais</th>
-                    <th>EBITIDA</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="table-row" th:each="balanco : ${balancos}">
-                    <td class="text-center" th:text="${balanco.receitaLiquida}"></td>
-                    <td class="text-center" th:text="${balanco.custos}"></td>
-                    <td class="text-center" th:text="${balanco.lucroBruto}"></td>
-                    <td class="text-center" th:text="${balanco.lucroLiquido}"></td>
-                    <td class="text-center" th:text="${balanco.despesaOperacional}"></td>
-                    <td class="text-center" th:text="${balanco.ebitida}"></td>
-                </tr>
-                </tbody>
-            </table>
+<body>
+<main>
+    <section layout:fragment="conteudo">
+            <header class="panel panel-default panel-heading">
+                <div class="header-first__line">
+                    <div class="header-row">
+                        <img src="/css/fig01.png">
+                    </div>
+                    <div class="header-row">
+                        <h4>Ações da empresa &nbsp</div></h4>
+                    </div>
+                    <div class="header-row">
 
-        </div>
-</section>
+                    </div>
+                </div>
+                <nav>
+                    <a href="/cadastro_acoes" class="header-row">
+                        <div  >PESQUISA</div>
+                    </a>
+                    <a href="/cadastro_acoes" class="header-row">
+                        <div >BALANÇO</div>
+                    </a>
+
+                </nav>
+            </header>
+
+            <div class="content__box ">
+                <div class="cotation-container" >
+                    <div class="cotation-container__left">
+                        <form class="cotation-container__form" method="POST" th:action="@{/balanco}">
+                            <div class="cotation-container__form-row">
+                                <label>Receita Liquida <input id="receitaLiquida" type="text" name="receitaLiquida"></label>
+                                <label>Custos <input  id="custos" type="text" name="custos"></label>
+                            </div>
+
+                            <div class="cotation-container__form-row">
+                                <label>Lucro Bruto<input  id="lucroBruto" type="text" name="lucroBruto"></label>
+                                <label>Lucro Liquido<input  id="lucroLiquido" type="text" name="lucroLiquido"></label>
+                            </div>
+
+                            <div class="cotation-container__form-row">
+                                <label>Despesas Operacionais<input  id="despesaOperacional" type="text" name="despesaOperacional"></label>
+                                <label>EBITIDA<input  id="ebitida" type="text" name="ebitida"></label>
+                            </div>
+
+                            <div class="cotation-container__form-row-button-box">
+                                <button type="submit">criar cotação</button>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="border-container" id="height300">
+                        <div class="content-box__content" >
+                            <table class="table-container__table" id="width100">
+                                <thead>
+                                <tr>
+                                    <th>Receita Liquida</th>
+                                    <th>Custos</th>
+                                    <th>Lucro Bruto</th>
+                                    <th>Lucro Liquido</th>
+                                    <th>Despesas Operacionais</th>
+                                    <th>EBITIDA</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="table-row" th:each="balanco : ${balancos}">
+                                    <td class="text-center" th:text="${balanco.receitaLiquida}"></td>
+                                    <td class="text-center" th:text="${balanco.custos}"></td>
+                                    <td class="text-center" th:text="${balanco.lucroBruto}"></td>
+                                    <td class="text-center" th:text="${balanco.lucroLiquido}"></td>
+                                    <td class="text-center" th:text="${balanco.despesaOperacional}"></td>
+                                    <td class="text-center" th:text="${balanco.ebitida}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="contato">
+                    <p>Contato: contato@contatoIFPB3FICTÍCIO.com</p>
+                    <p>Atendimento ao cliente: (xx) xx xxxx-xxxx</p>
+                    <p>Funcionamento segunda à sexta de 9:00hrs ás 18:00hrs</p>
+                </div>
+                <div class="logo">
+                    <img src="/css/fig01.png">
+                    <p>Todos os direitos reservados ao IFPB3 &copy;</p>
+                </div>
+                <div class="redes-sociais">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-rss"></a>
+                </div>
+            </footer>
+        </section>
+    </main>
+</body>
 </html>

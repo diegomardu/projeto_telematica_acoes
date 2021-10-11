@@ -21,25 +21,17 @@
                 </div>
             </div>
             <nav>
-                <div class="header-row">
-                    <a  href="/cadastro_acoes">Voltar para pesquisa</a>
-                </div>
-                <div class="header-row">
-                    <a  href="/formVerificar">Voltar para pesquisa</a>
-                </div>
-                <div class="header-row">
-                    <a  href="/cadastro_acoes">Voltar para pesquisa</a>
-                </div>
-                <div class="header-row">
-                    <a  href="/cadastro_acoes">Voltar para pesquisa</a>
-                </div>
-                <div class="header-row">
-                    <a  href="/cadastro_acoes">Voltar para pesquisa</a>
-                </div>
-            </nav>
+                <a href="/cadastro_acoes" class="header-row">
+                    <div  >PESQUISA</div>
+                </a>
+                <a href="/cadastro_acoes" class="header-row">
+                    <div >BALANÇO</div>
+                </a>
+            </nav>>
         </header>
-        <div class="content__box " id="padding180px">
-            <div class="table-info-action">
+
+        <div class="content__box " >
+            <div class="table-info-action" id="height25vh">
                 <div class="table-info-action__row">
                     <div class="table-info-action__info">
                         <p>identificação:<span class="teste" th:text="${acao.getCodigo()}"> </span></p>
@@ -91,8 +83,8 @@
                             </div>
                         </form>
                 </div>
-                <div class="border-container" id="height300">
-                    <div class="content-box__content" >
+                <div class="border-container" >
+                    <div class="content-box__content " id="height0px">
                         <table class="table-container__table" id="width100">
                             <thead>
                                 <tr>

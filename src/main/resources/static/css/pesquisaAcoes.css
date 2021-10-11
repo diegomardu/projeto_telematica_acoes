@@ -1,5 +1,4 @@
 .content-box{
-    padding:45px 0  20px 0px;
     background-image: url("fig02.jpg");
     background-repeat: no-repeat;
     background-position-y: calc(130px - 100%);
@@ -73,20 +72,33 @@
 }
 
 .content-box__content {
-    background-color:white;
-    overflow:scroll;
+    background-color: white;
     height: 468px;
 
 }
 
+.content-box__content tbody{
+    background-color: white;
+}
 
+#height0px{
+    height: 0px;
+}
+
+#maxWidth{
+    max-width: 90%;
+}
 
 .border-container{
-    max-width:90%;
+    max-width:50%;
     border:2px solid #4F4F4F;
-    overflow:hidden;
     border-radius:10px;
     margin: 0 auto;
+    overflow: scroll;
+}
+
+#height25vh{
+    height: 25vh;
 }
 
 ::-webkit-scrollbar {

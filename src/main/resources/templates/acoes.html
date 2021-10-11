@@ -23,26 +23,17 @@
 					</div>
 				</div>
 				<nav>
-					<div class="header-row">
-						<a  href="/cadastro_acoes">Voltar para pesquisa</a>
-					</div>
-					<div class="header-row">
-						<a  href="/cadastro_acoes">Voltar para pesquisa</a>
-					</div>
-					<div class="header-row">
-						<a  href="/cadastro_acoes">Voltar para pesquisa</a>
-					</div>
-					<div class="header-row">
-						<a  href="/cadastro_acoes">Voltar para pesquisa</a>
-					</div>
-					<div class="header-row">
-						<a  href="/cadastro_acoes">Voltar para pesquisa</a>
-					</div>
+					<a href="/cadastro_acoes" class="header-row">
+						<div  >PESQUISA</div>
+					</a>
+					<a href="/balanco" class="header-row">
+						<div >BALANÇO</div>
+					</a>
 				</nav>
 			</header>
 			<div class="content__box">
 				<form class="form-container" method="POST" th:action="@{/cadastro_acoes}" th:object="${cadastroAcao}">
-					<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+					<div class="alert-success .alert" th:if="${!#strings.isEmpty(mensagem)}">
 						<span th:text="${mensagem}">Ação salva com sucesso</span>
 					</div>
 					<div class="form-container__row">
