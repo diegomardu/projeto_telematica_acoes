@@ -51,10 +51,18 @@ header a{
     color: white;
     font-weight: bold;
     display: flex;
+    font-size: 22px;
 }
 
 header a:hover{
     text-decoration:none;
+
+}
+
+header nav div:hover , nav a:hover{
+    background-color: red;
+    color: white;
+    cursor: pointer;
 }
 
 header h4{
@@ -71,11 +79,16 @@ header img{
 }
 
 
-
 .alert{
 	margin-left: 10px;
 	margin-right: 10px;
-	height:42px
+
+}
+.alert-success{
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 
@@ -87,12 +100,16 @@ header img{
 }
 
 .content__box{
-    padding:250px 0  20px 0px;
+    padding:224px 0  20px 0px;
     background-image: url("fig02.jpg");
     background-repeat: no-repeat;
     background-position-y: calc(130px - 100%);
     background-size: cover;
-    height: 950px;
+
+}
+
+#padding44px{
+    padding: 44px;
 }
 
 .form-container{
