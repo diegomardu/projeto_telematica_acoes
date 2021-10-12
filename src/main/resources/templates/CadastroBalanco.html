@@ -14,7 +14,7 @@
                         <img src="/css/fig01.png">
                     </div>
                     <div class="header-row">
-                        <h4>Ações da empresa &nbsp</div></h4>
+                        <h4>Balanço da empresa &nbsp<div></div></h4>
                     </div>
                     <div class="header-row">
 
@@ -24,8 +24,8 @@
                     <a href="/cadastro_acoes" class="header-row">
                         <div  >PESQUISA</div>
                     </a>
-                    <a href="/cadastro_acoes" class="header-row">
-                        <div >BALANÇO</div>
+                    <a href="/cadastro_acoes/novo" class="header-row">
+                        <div >CADASTRO</div>
                     </a>
 
                 </nav>
@@ -49,9 +49,9 @@
                                 <label>Despesas Operacionais<input  id="despesaOperacional" type="text" name="despesaOperacional"></label>
                                 <label>EBITIDA<input  id="ebitida" type="text" name="ebitida"></label>
                             </div>
-
+                           <input  th:value="${acao.getCodigo()}" id="acaoID" type="hidden" name="acaoID">
                             <div class="cotation-container__form-row-button-box">
-                                <button type="submit">criar cotação</button>
+                                <button type="submit">criar balanço</button>
 
                             </div>
                         </form>
@@ -70,13 +70,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="table-row" th:each="balanco : ${balancos}">
-                                    <td class="text-center" th:text="${balanco.receitaLiquida}"></td>
-                                    <td class="text-center" th:text="${balanco.custos}"></td>
-                                    <td class="text-center" th:text="${balanco.lucroBruto}"></td>
-                                    <td class="text-center" th:text="${balanco.lucroLiquido}"></td>
-                                    <td class="text-center" th:text="${balanco.despesaOperacional}"></td>
-                                    <td class="text-center" th:text="${balanco.ebitida}"></td>
+                                <tr class="table-row" th:each="balanco : ${acao.getBalancos()}">
+                                    <td class="text-center" th:text="${balanco.getReceitaLiquida()}"></td>
+                                    <td class="text-center" th:text="${balanco.getCustos()}"></td>
+                                    <td class="text-center" th:text="${balanco.getLucroBruto()}"></td>
+                                    <td class="text-center" th:text="${balanco.getLucroLiquido()}"></td>
+                                    <td class="text-center" th:text="${balanco.getDespesaOperacional()}"></td>
+                                    <td class="text-center" th:text="${balanco.getEbitida()}"></td>
                                 </tr>
                                 </tbody>
                             </table>

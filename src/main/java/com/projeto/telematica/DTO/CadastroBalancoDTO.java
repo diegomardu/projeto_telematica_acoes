@@ -1,43 +1,32 @@
-package com.projeto.telematica.model;
+package com.projeto.telematica.DTO;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import com.projeto.telematica.model.CadastroAcao;
+import com.projeto.telematica.model.CadastroBalanco;
+
 import java.math.BigDecimal;
-import java.util.Objects;
 
-@Entity
-@Table(name = "tb_balanco")
-public class CadastroBalanco implements Serializable {
+public class CadastroBalancoDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long acaoID;
 
     private BigDecimal receitaLiquida;
+
     private BigDecimal custos;
+
     private BigDecimal lucroBruto;
+
     private BigDecimal lucroLiquido;
+
     private BigDecimal despesaOperacional;
+
     private BigDecimal ebitida;
 
-    @ManyToOne
-    @JoinColumn(name = "codigo")
-    private CadastroAcao acao;
-
-    public CadastroAcao getAcao() {
-        return acao;
+    public Long getAcaoID() {
+        return acaoID;
     }
 
-    public void setAcao(CadastroAcao acao) {
-        this.acao = acao;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setAcaoID(Long acaoID) {
+        this.acaoID = acaoID;
     }
 
     public BigDecimal getReceitaLiquida() {
@@ -88,16 +77,22 @@ public class CadastroBalanco implements Serializable {
         this.ebitida = ebitida;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CadastroBalanco)) return false;
-        CadastroBalanco that = (CadastroBalanco) o;
-        return Objects.equals(id, that.id);
+    public CadastroBalancoDTO() {
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public CadastroBalanco toTransformModel() {
+        CadastroBalanco balanco = new CadastroBalanco();
+        CadastroAcao acao = new CadastroAcao();
+        acao.setCodigo(acaoID);
+        balanco.setReceitaLiquida(receitaLiquida);
+        balanco.setCustos(custos);
+        balanco.setLucroBruto(lucroBruto);
+        balanco.setLucroLiquido(lucroLiquido);
+        balanco.setDespesaOperacional(despesaOperacional);
+        balanco.setEbitida(ebitida);
+        balanco.setAcao(acao);
+        return balanco;
+
     }
+
 }
