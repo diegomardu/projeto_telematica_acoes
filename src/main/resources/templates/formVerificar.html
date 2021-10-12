@@ -24,10 +24,10 @@
                 <a href="/cadastro_acoes" class="header-row">
                     <div  >PESQUISA</div>
                 </a>
-                <a href="/cadastro_acoes" class="header-row">
+                <a  href="#" class="header-row">
                     <div >BALANÇO</div>
                 </a>
-            </nav>>
+            </nav>
         </header>
 
         <div class="content__box " >
@@ -79,9 +79,14 @@
                             <input  th:value="${acao.getCodigo()}" id="acaoID" type="hidden" name="acaoID">
                             <div class="cotation-container__form-row-button-box">
                                 <button type="submit">criar cotação</button>
-
                             </div>
                         </form>
+                        <a th:href="@{/balanco/verificar/{id}(id=${acao.codigo})}">
+                            <div class="cotation-container__form-row-button-box">
+                                <button> cadastrar balanço</button>
+                            </div>
+                        </a>
+
                 </div>
                 <div class="border-container" >
                     <div class="content-box__content " id="height0px">

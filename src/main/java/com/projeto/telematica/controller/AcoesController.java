@@ -83,7 +83,6 @@ public class AcoesController {
 
 	@RequestMapping("/edit/{id}")
 	public String editbyId(CadastroAcao acao) {
-		System.out.println(acao.getCodigo().getClass());
 		acoesService.updateById(acao);
 		return "redirect:/cadastro_acoes";
 	}
