@@ -2,24 +2,31 @@ package com.projeto.telematica.DTO;
 
 import com.projeto.telematica.model.CadastroAcao;
 import com.projeto.telematica.model.CadastroBalanco;
-
-import java.math.BigDecimal;
+import com.projeto.telematica.service.BalancoService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class CadastroBalancoDTO {
 
+    @Autowired
+    private BalancoService balancoService;
+
     private Long acaoID;
 
-    private BigDecimal receitaLiquida;
+    private Double receitaLiquida;
 
-    private BigDecimal custos;
+    private Double custos;
 
-    private BigDecimal lucroBruto;
+    private Double lucroBruto;
 
-    private BigDecimal lucroLiquido;
+    private Double lucroLiquido;
 
-    private BigDecimal despesaOperacional;
+    private Double despesaOperacional;
 
-    private BigDecimal ebitida;
+    private Double ebitida;
+
+    private Double receitasFinanceiras;
+
+    private Double despesaFinanceiras;
 
     public Long getAcaoID() {
         return acaoID;
@@ -29,52 +36,68 @@ public class CadastroBalancoDTO {
         this.acaoID = acaoID;
     }
 
-    public BigDecimal getReceitaLiquida() {
+    public Double getReceitaLiquida() {
         return receitaLiquida;
     }
 
-    public void setReceitaLiquida(BigDecimal receitaLiquida) {
+    public void setReceitaLiquida(Double receitaLiquida) {
         this.receitaLiquida = receitaLiquida;
     }
 
-    public BigDecimal getCustos() {
+    public Double getCustos() {
         return custos;
     }
 
-    public void setCustos(BigDecimal custos) {
+    public void setCustos(Double custos) {
         this.custos = custos;
     }
 
-    public BigDecimal getLucroBruto() {
+    public Double getLucroBruto() {
         return lucroBruto;
     }
 
-    public void setLucroBruto(BigDecimal lucroBruto) {
+    public void setLucroBruto(Double lucroBruto) {
         this.lucroBruto = lucroBruto;
     }
 
-    public BigDecimal getLucroLiquido() {
+    public Double getLucroLiquido() {
         return lucroLiquido;
     }
 
-    public void setLucroLiquido(BigDecimal lucroLiquido) {
+    public void setLucroLiquido(Double lucroLiquido) {
         this.lucroLiquido = lucroLiquido;
     }
 
-    public BigDecimal getDespesaOperacional() {
+    public Double getDespesaOperacional() {
         return despesaOperacional;
     }
 
-    public void setDespesaOperacional(BigDecimal despesaOperacional) {
+    public void setDespesaOperacional(Double despesaOperacional) {
         this.despesaOperacional = despesaOperacional;
     }
 
-    public BigDecimal getEbitida() {
+    public Double getEbitida() {
         return ebitida;
     }
 
-    public void setEbitida(BigDecimal ebitida) {
+    public void setEbitida(Double ebitida) {
         this.ebitida = ebitida;
+    }
+
+    public Double getReceitasFinanceiras() {
+        return receitasFinanceiras;
+    }
+
+    public void setReceitasFinanceiras(Double receitasFinanceiras) {
+        this.receitasFinanceiras = receitasFinanceiras;
+    }
+
+    public Double getDespesaFinanceiras() {
+        return despesaFinanceiras;
+    }
+
+    public void setDespesaFinanceiras(Double despesaFinanceiras) {
+        this.despesaFinanceiras = despesaFinanceiras;
     }
 
     public CadastroBalancoDTO() {
@@ -85,12 +108,13 @@ public class CadastroBalancoDTO {
         CadastroAcao acao = new CadastroAcao();
         acao.setCodigo(acaoID);
         balanco.setReceitaLiquida(receitaLiquida);
-        balanco.setCustos(custos);
+        balanco.setCustosFixos(custos);
         balanco.setLucroBruto(lucroBruto);
         balanco.setLucroLiquido(lucroLiquido);
-        balanco.setDespesaOperacional(despesaOperacional);
+        balanco.setDespesaFinanceiras(despesaOperacional);
         balanco.setEbitida(ebitida);
         balanco.setAcao(acao);
+        balanco.setResultadoFinanceiro(balancoService.calcularResultadoFinaceira(receitasFinanceiras,despesaFinanceiras));
         return balanco;
 
     }

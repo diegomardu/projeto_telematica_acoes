@@ -36,18 +36,18 @@
                     <div class="cotation-container__left">
                         <form class="cotation-container__form" method="POST" th:action="@{/balanco}">
                             <div class="cotation-container__form-row">
-                                <label>Receita Liquida <input id="receitaLiquida" type="text" name="receitaLiquida"></label>
-                                <label>Custos <input  id="custos" type="text" name="custos"></label>
+                                <label>Receita Bruta <input id="receitaBruta" type="text" name="receitaBruta"></label>
+                                <label>Receitas Financeiras <input  id="receitasFinanceiras" type="text" name="receitasFinanceiras"></label>
                             </div>
 
                             <div class="cotation-container__form-row">
-                                <label>Lucro Bruto<input  id="lucroBruto" type="text" name="lucroBruto"></label>
-                                <label>Lucro Liquido<input  id="lucroLiquido" type="text" name="lucroLiquido"></label>
+                                <label>Deduções<input  id="deducoes" type="text" name="deducoes"></label>
+                                <label>Despesas Financeiras<input  id="despesaFinanceiras" type="text" name="despesaFinanceiras"></label>
                             </div>
 
                             <div class="cotation-container__form-row">
-                                <label>Despesas Operacionais<input  id="despesaOperacional" type="text" name="despesaOperacional"></label>
-                                <label>EBITIDA<input  id="ebitida" type="text" name="ebitida"></label>
+                                <label>Custos Fixos<input  id="custosFixos" type="text" name="custosFixos"></label>
+                                <label>Impostos<input  id="impostos" type="text" name="impostos"></label>
                             </div>
                            <input  th:value="${acao.getCodigo()}" id="acaoID" type="hidden" name="acaoID">
                             <div class="cotation-container__form-row-button-box">
@@ -61,21 +61,23 @@
                             <table class="table-container__table" id="width100">
                                 <thead>
                                 <tr>
-                                    <th>Receita Liquida</th>
-                                    <th>Custos</th>
-                                    <th>Lucro Bruto</th>
+                                    <th>Receita Bruta</th>
+                                    <th>Deduções</th>
+                                    <th>Custos Fixos</th>
+                                    <th>Resultado Fianceiro</th>
+                                    <th>Receita liquida</th>
                                     <th>Lucro Liquido</th>
-                                    <th>Despesas Operacionais</th>
-                                    <th>EBITIDA</th>
+                                    <th>Ebit</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr class="table-row" th:each="balanco : ${acao.getBalancos()}">
+                                    <td class="text-center" th:text="${balanco.getReceitaBruta()}"></td>
+                                    <td class="text-center" th:text="${balanco.getDeducoes()}"></td>
+                                    <td class="text-center" th:text="${balanco.getCustosFixos()}"></td>
+                                    <td class="text-center" th:text="${balanco.getResultadoFinanceiro()}"></td>
                                     <td class="text-center" th:text="${balanco.getReceitaLiquida()}"></td>
-                                    <td class="text-center" th:text="${balanco.getCustos()}"></td>
-                                    <td class="text-center" th:text="${balanco.getLucroBruto()}"></td>
                                     <td class="text-center" th:text="${balanco.getLucroLiquido()}"></td>
-                                    <td class="text-center" th:text="${balanco.getDespesaOperacional()}"></td>
                                     <td class="text-center" th:text="${balanco.getEbitida()}"></td>
                                 </tr>
                                 </tbody>
