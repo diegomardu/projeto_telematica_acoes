@@ -33,9 +33,6 @@ public class CadastroBalanco implements Serializable {
     private Double custosFixos;
 
     @NumberFormat(pattern = "#,##0.00")
-    private Double lucroBruto;
-
-    @NumberFormat(pattern = "#,##0.00")
     private Double lucroLiquido;
 
     @NumberFormat(pattern = "#,##0.00")
@@ -114,14 +111,6 @@ public class CadastroBalanco implements Serializable {
         this.custosFixos = custos;
     }
 
-    public Double getLucroBruto() {
-        return lucroBruto;
-    }
-
-    public void setLucroBruto(Double lucroBruto) {
-        this.lucroBruto = lucroBruto;
-    }
-
     public Double getLucroLiquido() {
         return lucroLiquido;
     }
@@ -146,7 +135,7 @@ public class CadastroBalanco implements Serializable {
         this.ebitida = ebitida;
     }
 
-    public Double getResultadoFinanceiro(Double resultado) {
+    public Double getResultadoFinanceiro() {
         return resultadoFinanceiro;
     }
 
@@ -166,4 +155,5 @@ public class CadastroBalanco implements Serializable {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }

@@ -14,19 +14,25 @@ public class CadastroBalancoDTO {
 
     private Double receitaLiquida;
 
-    private Double custos;
+    private Double receitaBruta;
+
+    private Double receitasFinanceiras;
+
+    private Double deducoes;
+
+    private Double impostos;
+
+    private Double custosFixos;
 
     private Double lucroBruto;
 
     private Double lucroLiquido;
 
-    private Double despesaOperacional;
+    private Double despesaFinanceiras;
 
     private Double ebitida;
 
-    private Double receitasFinanceiras;
-
-    private Double despesaFinanceiras;
+    private Double resultadoFinanceiro;
 
     public Long getAcaoID() {
         return acaoID;
@@ -34,6 +40,14 @@ public class CadastroBalancoDTO {
 
     public void setAcaoID(Long acaoID) {
         this.acaoID = acaoID;
+    }
+
+    public BalancoService getBalancoService() {
+        return balancoService;
+    }
+
+    public void setBalancoService(BalancoService balancoService) {
+        this.balancoService = balancoService;
     }
 
     public Double getReceitaLiquida() {
@@ -44,12 +58,44 @@ public class CadastroBalancoDTO {
         this.receitaLiquida = receitaLiquida;
     }
 
-    public Double getCustos() {
-        return custos;
+    public Double getReceitaBruta() {
+        return receitaBruta;
     }
 
-    public void setCustos(Double custos) {
-        this.custos = custos;
+    public void setReceitaBruta(Double receitaBruta) {
+        this.receitaBruta = receitaBruta;
+    }
+
+    public Double getReceitasFinanceiras() {
+        return receitasFinanceiras;
+    }
+
+    public void setReceitasFinanceiras(Double receitasFinanceiras) {
+        this.receitasFinanceiras = receitasFinanceiras;
+    }
+
+    public Double getDeducoes() {
+        return deducoes;
+    }
+
+    public void setDeducoes(Double deducoes) {
+        this.deducoes = deducoes;
+    }
+
+    public Double getImpostos() {
+        return impostos;
+    }
+
+    public void setImpostos(Double impostos) {
+        this.impostos = impostos;
+    }
+
+    public Double getCustosFixos() {
+        return custosFixos;
+    }
+
+    public void setCustosFixos(Double custosFixos) {
+        this.custosFixos = custosFixos;
     }
 
     public Double getLucroBruto() {
@@ -68,12 +114,12 @@ public class CadastroBalancoDTO {
         this.lucroLiquido = lucroLiquido;
     }
 
-    public Double getDespesaOperacional() {
-        return despesaOperacional;
+    public Double getDespesaFinanceiras() {
+        return despesaFinanceiras;
     }
 
-    public void setDespesaOperacional(Double despesaOperacional) {
-        this.despesaOperacional = despesaOperacional;
+    public void setDespesaFinanceiras(Double despesaFinanceiras) {
+        this.despesaFinanceiras = despesaFinanceiras;
     }
 
     public Double getEbitida() {
@@ -84,20 +130,12 @@ public class CadastroBalancoDTO {
         this.ebitida = ebitida;
     }
 
-    public Double getReceitasFinanceiras() {
-        return receitasFinanceiras;
+    public Double getResultadoFinanceiro() {
+        return resultadoFinanceiro;
     }
 
-    public void setReceitasFinanceiras(Double receitasFinanceiras) {
-        this.receitasFinanceiras = receitasFinanceiras;
-    }
-
-    public Double getDespesaFinanceiras() {
-        return despesaFinanceiras;
-    }
-
-    public void setDespesaFinanceiras(Double despesaFinanceiras) {
-        this.despesaFinanceiras = despesaFinanceiras;
+    public void setResultadoFinanceiro(Double resultadoFinanceiro) {
+        this.resultadoFinanceiro = resultadoFinanceiro;
     }
 
     public CadastroBalancoDTO() {
@@ -107,16 +145,39 @@ public class CadastroBalancoDTO {
         CadastroBalanco balanco = new CadastroBalanco();
         CadastroAcao acao = new CadastroAcao();
         acao.setCodigo(acaoID);
-        balanco.setReceitaLiquida(receitaLiquida);
-        balanco.setCustosFixos(custos);
-        balanco.setLucroBruto(lucroBruto);
-        balanco.setLucroLiquido(lucroLiquido);
-        balanco.setDespesaFinanceiras(despesaOperacional);
-        balanco.setEbitida(ebitida);
+        balanco.setReceitaBruta(receitaBruta);
+        balanco.setReceitasFinanceiras(receitasFinanceiras);
+        balanco.setDeducoes(deducoes);
+        balanco.setDespesaFinanceiras(despesaFinanceiras);
+        balanco.setCustosFixos(custosFixos);
+        balanco.setImpostos(impostos);
         balanco.setAcao(acao);
-        balanco.setResultadoFinanceiro(balancoService.calcularResultadoFinaceira(receitasFinanceiras,despesaFinanceiras));
+        balanco.setResultadoFinanceiro(calculaResultadoFianceiro(receitasFinanceiras,despesaFinanceiras));
+        balanco.setReceitaLiquida(calculaReceitaLiquida(receitaBruta, deducoes));
+        balanco.setLucroLiquido(calculaLucroLiquido(receitaBruta, custosFixos, impostos));
+        double lucroL = balanco.getLucroLiquido();
+        double resultadoF = balanco.getResultadoFinanceiro();
+        balanco.setEbitida(calculaEbit(lucroL,resultadoF,impostos));
         return balanco;
 
     }
+
+    public Double calculaResultadoFianceiro(Double receitasFinanceiras, Double despesaFinanceiras){
+        return receitasFinanceiras - despesaFinanceiras;
+    }
+
+    public Double calculaReceitaLiquida(Double receitaBruta, Double deducoes){
+        return receitaBruta - deducoes;
+    }
+
+    public Double calculaLucroLiquido(Double receitaBruta, Double custosFixos, Double impostos){
+        return receitaBruta - (custosFixos + impostos);
+    }
+
+    public Double calculaEbit(Double lucroLiquido, Double resultadoFinanceiro, Double impostos){
+        return lucroLiquido + resultadoFinanceiro + impostos;
+    }
+
+
 
 }

@@ -5,7 +5,6 @@ import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.Double;
 import java.util.Objects;
 
 @Entity

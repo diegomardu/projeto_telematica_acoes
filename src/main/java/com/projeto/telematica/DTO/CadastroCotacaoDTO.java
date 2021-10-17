@@ -3,7 +3,7 @@ package com.projeto.telematica.DTO;
 import com.projeto.telematica.model.CadastroAcao;
 import com.projeto.telematica.model.CadastroCotacao;
 
-import java.math.Double;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
