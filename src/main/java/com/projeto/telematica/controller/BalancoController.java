@@ -6,6 +6,7 @@ import com.projeto.telematica.model.CadastroAcao;
 import com.projeto.telematica.model.CadastroBalanco;
 import com.projeto.telematica.model.CadastroCotacao;
 import com.projeto.telematica.repository.BalancoRepository;
+import com.projeto.telematica.service.BalancoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -28,7 +29,7 @@ public class BalancoController {
     private AcoesRepository acoesRepository;
 
     @Autowired
-    private BalancoRepository balancoRepository;
+    private BalancoService balancoService;
 
     @RequestMapping("/novo")
     public ModelAndView novoBalanco(){
@@ -37,9 +38,9 @@ public class BalancoController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView CadastrarBalanco(@Validated CadastroBalancoDTO cadastroBalancoDTO) {
+    public ModelAndView cadastrarBalanco(@Validated CadastroBalancoDTO cadastroBalancoDTO) {
         CadastroBalanco cadastroBalanco = cadastroBalancoDTO.toTransformModel();
-        balancoRepository.save(cadastroBalanco);
+        balancoService.salvar(cadastroBalanco);
         CadastroAcao acao = acoesRepository.findById(cadastroBalanco.getAcao().getCodigo()).get();
         ModelAndView mv = new ModelAndView(CADASTRO_BALANCO);
         mv.addObject("acao",acao);
@@ -48,8 +49,8 @@ public class BalancoController {
     }
 
     @RequestMapping
-    public ModelAndView BuscarCotacao() {
-        List<CadastroBalanco> balancos = balancoRepository.findAll();
+    public ModelAndView buscarBalanco() {
+        List<CadastroBalanco> balancos = balancoService.pesquisar();
         ModelAndView mv = new ModelAndView(CADASTRO_BALANCO);
         mv.addObject("balancos", balancos);
         return mv;

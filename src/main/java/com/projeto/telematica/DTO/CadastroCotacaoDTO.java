@@ -3,7 +3,7 @@ package com.projeto.telematica.DTO;
 import com.projeto.telematica.model.CadastroAcao;
 import com.projeto.telematica.model.CadastroCotacao;
 
-import java.math.BigDecimal;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,13 +12,13 @@ public class CadastroCotacaoDTO {
 
     private Long acaoID;
 
-    private BigDecimal valorMinimo;
+    private Double valorMinimo;
 
-    private BigDecimal valorMaximo;
+    private Double valorMaximo;
 
-    private BigDecimal cotacaoAbertura;
+    private Double cotacaoAbertura;
 
-    private BigDecimal cotacaoFechamento;
+    private Double cotacaoFechamento;
 
     public CadastroCotacaoDTO() {
     }
@@ -40,35 +40,35 @@ public class CadastroCotacaoDTO {
     }
 
 
-    public BigDecimal getValorMinimo() {
+    public Double getValorMinimo() {
         return valorMinimo;
     }
 
-    public void setValorMinimo(BigDecimal valorMinimo) {
+    public void setValorMinimo(Double valorMinimo) {
         this.valorMinimo = valorMinimo;
     }
 
-    public BigDecimal getValorMaximo() {
+    public Double getValorMaximo() {
         return valorMaximo;
     }
 
-    public void setValorMaximo(BigDecimal valorMaximo) {
+    public void setValorMaximo(Double valorMaximo) {
         this.valorMaximo = valorMaximo;
     }
 
-    public BigDecimal getCotacaoAbertura() {
+    public Double getCotacaoAbertura() {
         return cotacaoAbertura;
     }
 
-    public void setCotacaoAbertura(BigDecimal cotacaoAbertura) {
+    public void setCotacaoAbertura(Double cotacaoAbertura) {
         this.cotacaoAbertura = cotacaoAbertura;
     }
 
-    public BigDecimal getCotacaoFechamento() {
+    public Double getCotacaoFechamento() {
         return cotacaoFechamento;
     }
 
-    public void setCotacaoFechamento(BigDecimal cotacaoFechamento) {
+    public void setCotacaoFechamento(Double cotacaoFechamento) {
         this.cotacaoFechamento = cotacaoFechamento;
     }
 
