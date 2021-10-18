@@ -5,7 +5,6 @@ import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -19,16 +18,16 @@ public class CadastroCotacao implements Serializable {
     private Long id;
 
     @NumberFormat(pattern = "#,##0.00")
-    private BigDecimal valorMinimo;
+    private Double valorMinimo;
 
     @NumberFormat(pattern = "#,##0.00")
-    private BigDecimal valorMaximo;
+    private Double valorMaximo;
 
     @NumberFormat(pattern = "#,##0.00")
-    private BigDecimal cotacaoAbertura;
+    private Double cotacaoAbertura;
 
     @NumberFormat(pattern = "#,##0.00")
-    private BigDecimal cotacaoFechamento;
+    private Double cotacaoFechamento;
     private String data;
 
     @ManyToOne
@@ -51,35 +50,35 @@ public class CadastroCotacao implements Serializable {
         this.id = id;
     }
 
-    public BigDecimal getValorMinimo() {
+    public Double getValorMinimo() {
         return valorMinimo;
     }
 
-    public void setValorMinimo(BigDecimal valorMinimo) {
+    public void setValorMinimo(Double valorMinimo) {
         this.valorMinimo = valorMinimo;
     }
 
-    public BigDecimal getValorMaximo() {
+    public Double getValorMaximo() {
         return valorMaximo;
     }
 
-    public void setValorMaximo(BigDecimal valorMaximo) {
+    public void setValorMaximo(Double valorMaximo) {
         this.valorMaximo = valorMaximo;
     }
 
-    public BigDecimal getCotacaoAbertura() {
+    public Double getCotacaoAbertura() {
         return cotacaoAbertura;
     }
 
-    public void setCotacaoAbertura(BigDecimal cotacaoAbertura) {
+    public void setCotacaoAbertura(Double cotacaoAbertura) {
         this.cotacaoAbertura = cotacaoAbertura;
     }
 
-    public BigDecimal getCotacaoFechamento() {
+    public Double getCotacaoFechamento() {
         return cotacaoFechamento;
     }
 
-    public void setCotacaoFechamento(BigDecimal cotacaoFechamento) {
+    public void setCotacaoFechamento(Double cotacaoFechamento) {
         this.cotacaoFechamento = cotacaoFechamento;
     }
 

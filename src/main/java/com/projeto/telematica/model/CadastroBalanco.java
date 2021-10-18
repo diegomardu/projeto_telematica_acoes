@@ -1,8 +1,11 @@
 package com.projeto.telematica.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -13,16 +16,75 @@ public class CadastroBalanco implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private BigDecimal receitaLiquida;
-    private BigDecimal custos;
-    private BigDecimal lucroBruto;
-    private BigDecimal lucroLiquido;
-    private BigDecimal despesaOperacional;
-    private BigDecimal ebitida;
+    @NumberFormat(pattern = "#,##0.00")
+    private Double receitaLiquida;
+
+    @NumberFormat(pattern = "#,##0.00")
+    private Double receitaBruta;
+
+    @NumberFormat(pattern = "#,##0.00")
+    private Double receitasFinanceiras;
+
+    @NumberFormat(pattern = "#,##0.00")
+    private Double deducoes;
+
+    @NumberFormat(pattern = "#,##0.00")
+    private Double impostos;
+
+    @NumberFormat(pattern = "#,##0.00")
+    private Double custosFixos;
+
+    @NumberFormat(pattern = "#,##0.00")
+    private Double lucroLiquido;
+
+    @NumberFormat(pattern = "#,##0.00")
+    private Double despesaFinanceiras;
+
+    @NumberFormat(pattern = "#,##0.00")
+    private Double ebitida;
+
+    @NumberFormat(pattern = "#,##0.00")
+    private Double resultadoFinanceiro;
+
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Temporal(TemporalType.DATE)
+    private Date dataCadastro;
 
     @ManyToOne
     @JoinColumn(name = "codigo")
     private CadastroAcao acao;
+
+    public Double getReceitaBruta() {
+        return receitaBruta;
+    }
+
+    public void setReceitaBruta(Double receitaBruta) {
+        this.receitaBruta = receitaBruta;
+    }
+
+    public Double getReceitasFinanceiras() {
+        return receitasFinanceiras;
+    }
+
+    public void setReceitasFinanceiras(Double receitasFinanceiras) {
+        this.receitasFinanceiras = receitasFinanceiras;
+    }
+
+    public Double getDeducoes() {
+        return deducoes;
+    }
+
+    public void setDeducoes(Double deducoes) {
+        this.deducoes = deducoes;
+    }
+
+    public Double getImpostos() {
+        return impostos;
+    }
+
+    public void setImpostos(Double impostos) {
+        this.impostos = impostos;
+    }
 
     public CadastroAcao getAcao() {
         return acao;
@@ -40,52 +102,60 @@ public class CadastroBalanco implements Serializable {
         this.id = id;
     }
 
-    public BigDecimal getReceitaLiquida() {
+    public Double getReceitaLiquida() {
         return receitaLiquida;
     }
 
-    public void setReceitaLiquida(BigDecimal receitaLiquida) {
+    public void setReceitaLiquida(Double receitaLiquida) {
         this.receitaLiquida = receitaLiquida;
     }
 
-    public BigDecimal getCustos() {
-        return custos;
+    public Double getCustosFixos() {
+        return custosFixos;
     }
 
-    public void setCustos(BigDecimal custos) {
-        this.custos = custos;
+    public void setCustosFixos(Double custos) {
+        this.custosFixos = custos;
     }
 
-    public BigDecimal getLucroBruto() {
-        return lucroBruto;
-    }
-
-    public void setLucroBruto(BigDecimal lucroBruto) {
-        this.lucroBruto = lucroBruto;
-    }
-
-    public BigDecimal getLucroLiquido() {
+    public Double getLucroLiquido() {
         return lucroLiquido;
     }
 
-    public void setLucroLiquido(BigDecimal lucroLiquido) {
+    public void setLucroLiquido(Double lucroLiquido) {
         this.lucroLiquido = lucroLiquido;
     }
 
-    public BigDecimal getDespesaOperacional() {
-        return despesaOperacional;
+    public Double getDespesaFinanceiras() {
+        return despesaFinanceiras;
     }
 
-    public void setDespesaOperacional(BigDecimal despesaOperacional) {
-        this.despesaOperacional = despesaOperacional;
+    public void setDespesaFinanceiras(Double despesaOperacional) {
+        this.despesaFinanceiras = despesaOperacional;
     }
 
-    public BigDecimal getEbitida() {
+    public Double getEbitida() {
         return ebitida;
     }
 
-    public void setEbitida(BigDecimal ebitida) {
+    public void setEbitida(Double ebitida) {
         this.ebitida = ebitida;
+    }
+
+    public Double getResultadoFinanceiro() {
+        return resultadoFinanceiro;
+    }
+
+    public void setResultadoFinanceiro(Double resultadoFinanceiro) {
+        this.resultadoFinanceiro = resultadoFinanceiro;
+    }
+
+    public Date getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(Date dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
     @Override
@@ -100,4 +170,5 @@ public class CadastroBalanco implements Serializable {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }
