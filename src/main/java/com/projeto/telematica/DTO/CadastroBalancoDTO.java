@@ -5,6 +5,8 @@ import com.projeto.telematica.model.CadastroBalanco;
 import com.projeto.telematica.service.BalancoService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CadastroBalancoDTO {
@@ -36,7 +38,7 @@ public class CadastroBalancoDTO {
 
     private Double resultadoFinanceiro;
 
-    private Date dataCadastro;
+    private String dataCadastro;
 
     public Long getAcaoID() {
         return acaoID;
@@ -142,11 +144,11 @@ public class CadastroBalancoDTO {
         this.resultadoFinanceiro = resultadoFinanceiro;
     }
 
-    public Date getDataCadastro() {
+    public String getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
+    public void setDataCadastro(String dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
@@ -167,7 +169,9 @@ public class CadastroBalancoDTO {
         balanco.setResultadoFinanceiro(calculaResultadoFianceiro(receitasFinanceiras,despesaFinanceiras));
         balanco.setReceitaLiquida(calculaReceitaLiquida(receitaBruta, deducoes));
         balanco.setLucroLiquido(calculaLucroLiquido(receitaBruta, custosFixos, impostos));
-        balanco.setDataCadastro(dataCadastro);
+        DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        balanco.setDataCadastro(df.format(date));
         double lucroL = balanco.getLucroLiquido();
         double resultadoF = balanco.getResultadoFinanceiro();
         balanco.setEbitida(calculaEbit(lucroL,resultadoF,impostos));
