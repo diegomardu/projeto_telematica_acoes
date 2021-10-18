@@ -49,11 +49,18 @@
                                 <label>Custos Fixos<input  id="custosFixos" type="text" name="custosFixos"></label>
                                 <label>Impostos<input  id="impostos" type="text" name="impostos"></label>
                             </div>
+
+                            <div class="cotation-container__form-row">
+                                <label for="dataCadastro" class="cotation-container__form-row">Data</label>
+                                <input type="text" class="form-control"	id="dataCadastro" name="dataCadastro"
+                                       data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="pt-BR"
+                                       data-date-autoclose="true" data-date-today-highlight="true" data-date-orientatio="bottom"/>
+                            </div>
                            <input  th:value="${acao.getCodigo()}" id="acaoID" type="hidden" name="acaoID">
                             <div class="cotation-container__form-row-button-box">
                                 <button type="submit">criar balanço</button>
-
                             </div>
+
                         </form>
                     </div>
                     <div class="border-container" id="height300">
@@ -61,6 +68,7 @@
                             <table class="table-container__table" id="width100">
                                 <thead>
                                 <tr>
+                                    <th>Data</th>
                                     <th>Receita Bruta</th>
                                     <th>Deduções</th>
                                     <th>Custos Fixos</th>
@@ -72,6 +80,7 @@
                                 </thead>
                                 <tbody>
                                 <tr class="table-row" th:each="balanco : ${acao.getBalancos()}">
+                                    <td class="text-center" th:text="${balanco.getDataCadastro()}"></td>
                                     <td class="text-center" th:text="${balanco.getReceitaBruta()}"></td>
                                     <td class="text-center" th:text="${balanco.getDeducoes()}"></td>
                                     <td class="text-center" th:text="${balanco.getCustosFixos()}"></td>

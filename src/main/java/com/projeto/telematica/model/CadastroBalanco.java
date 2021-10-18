@@ -1,9 +1,11 @@
 package com.projeto.telematica.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -41,7 +43,12 @@ public class CadastroBalanco implements Serializable {
     @NumberFormat(pattern = "#,##0.00")
     private Double ebitida;
 
+    @NumberFormat(pattern = "#,##0.00")
     private Double resultadoFinanceiro;
+
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Temporal(TemporalType.DATE)
+    private Date dataCadastro;
 
     @ManyToOne
     @JoinColumn(name = "codigo")
@@ -141,6 +148,14 @@ public class CadastroBalanco implements Serializable {
 
     public void setResultadoFinanceiro(Double resultadoFinanceiro) {
         this.resultadoFinanceiro = resultadoFinanceiro;
+    }
+
+    public Date getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(Date dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
     @Override
