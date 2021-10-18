@@ -46,9 +46,9 @@ public class CadastroBalanco implements Serializable {
     @NumberFormat(pattern = "#,##0.00")
     private Double resultadoFinanceiro;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    @Temporal(TemporalType.DATE)
-    private Date dataCadastro;
+    /*@DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Temporal(TemporalType.DATE)*/
+    private String dataCadastro;
 
     @ManyToOne
     @JoinColumn(name = "codigo")
@@ -150,11 +150,11 @@ public class CadastroBalanco implements Serializable {
         this.resultadoFinanceiro = resultadoFinanceiro;
     }
 
-    public Date getDataCadastro() {
+    public String getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
+    public void setDataCadastro(String dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
